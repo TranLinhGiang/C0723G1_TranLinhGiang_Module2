@@ -27,7 +27,6 @@ public class Circle {
     public void setColor(String color) {
         this.color = color;
     }
-
     @Override
     public String toString() {
         return "Circle{" +
@@ -35,10 +34,9 @@ public class Circle {
                 ", color='" + color + '\'' +
                 '}';
     }
-
     public static class TestCircle {
         public static void main(String[] args) {
-            Circle circle= new Circle();
+            Circle circle = new Circle();
             System.out.println(circle.toString());
             circle.setRadius(3.6);
             circle.setColor("blue");

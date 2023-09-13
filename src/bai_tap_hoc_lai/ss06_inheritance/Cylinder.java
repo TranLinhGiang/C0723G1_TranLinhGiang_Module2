@@ -8,7 +8,7 @@ public class Cylinder extends Circle {   // sử dụng extends để lớp Cyli
 
 
     public Cylinder(double radius, String color, double height) {   // đây là overload
-        super(radius, color);     // Thành phần radius, color được kế thừa lại của lớp Circle, và thành phần tính diện tích không được kế thừa.
+        super(radius, color);     // Thành phần radius, color được kế thừa lại của lớp Circle,sử dụng super để lấy lại giá trị từ circle.
         this.height = height;
     }
 

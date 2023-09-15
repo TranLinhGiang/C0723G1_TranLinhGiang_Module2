@@ -1,19 +1,19 @@
 package bai_tap_hoc_lai.ss08_clean_code;
 
 public class CleanCode {
-    public static void main(String[] args) {
+    public int sum(int number1, int number2, int number3) {
+        int total = number1 + number2 + number3;
+        return total;
     }
-    public int sum(int num1,int num2,int num3){
-        int sum=num1+num2+num3;
-        return sum;}
 
-    private void employeeDetails(String name, String age, String awards, String ctc, String experience) {
+    private void employeeDetails(Employee employee) {
     }
-    public boolean is_leap_year(int year) {
+
+    public boolean isLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
     }
 
-    public int getDayOfMonth(int month, int year) {
+    public void getDayOfMonth(int month, int year) {
         switch (month) {
             case 1:
             case 3:
@@ -22,24 +22,24 @@ public class CleanCode {
             case 8:
             case 10:
             case 12:
-                System.out.println("Thang co 31 ngay");
+                System.out.println("Tháng " + month + " Có 31 ngày ");
                 break;
             case 4:
             case 6:
             case 9:
             case 11:
-                System.out.println("Thang co 30 ngay");
+                System.out.println("Tháng " + month + " Có 30 ngày ");
                 break;
             case 2:
-                if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
-                    System.out.println("La nam nhuan, co 29 ngay");
-                }else {
-                    System.out.println("La nam khong nhuan, cos 28 ngay");
+                if (isLeapYear(year)) {
+                    System.out.println("Tháng 2, nam nhuan có 29 ngày ");
+                    break;
+                } else {
+                    System.out.println("Tháng 2, nam khong nhuan có 28 ngày ");
+                    break;
                 }
-                return is_leap_year(year) ? 29 : 28;
             default:
-                return -1;
+                System.out.println("Tháng Không hợp lệ");
         }
-        return month;
     }
 }

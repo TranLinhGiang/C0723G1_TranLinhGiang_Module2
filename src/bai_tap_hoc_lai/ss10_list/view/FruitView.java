@@ -82,7 +82,6 @@ public class FruitView {
         String name = scanner.nextLine();
         return name;
     }
-
     public void displaySearchFruit(Fruit fruit) {
         String result = "{ Fruit: name= " + fruit.getName() + ", loai= " + fruit.getTypeFruit() + ", ngay san xuat= " + fruit.getDateOfManufacture() + ", han su dung= " + fruit.getExpiry() + ", noi xuat xu= " + fruit.getOrigin() + ", gia= " + fruit.getPrice();
         System.out.println("Tim thay: " + result);

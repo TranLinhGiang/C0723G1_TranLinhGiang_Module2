@@ -1,6 +1,6 @@
 package bai_tap_hoc_lai.mvc.service.impl;
 
-import bai_tap_hoc_lai.mvc.model.Car;
+
 import bai_tap_hoc_lai.mvc.model.Motorbike;
 import bai_tap_hoc_lai.mvc.repository.impl.MotorbikeRepositoryImpl;
 import bai_tap_hoc_lai.mvc.service.IMotorbikeService;

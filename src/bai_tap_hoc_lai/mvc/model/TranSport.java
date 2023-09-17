@@ -1,10 +1,10 @@
 package bai_tap_hoc_lai.mvc.model;
 
 public abstract class TranSport {
-    private String licensePlates; //bien so xe
-    private String manufacturerName; // ten hang san xuat
-    private int yearOfManufacture; // nam san xuat
-    private String owner;  // chu nhan
+    private String licensePlates;
+    private String manufacturerName;
+    private int yearOfManufacture;
+    private String owner;
 
     public TranSport() {
     }

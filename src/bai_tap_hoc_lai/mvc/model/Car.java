@@ -1,11 +1,8 @@
 package bai_tap_hoc_lai.mvc.model;
 
 public class Car extends TranSport {
-    private int numberOfSeats;   // so cho ngoi
-    private String typeCar;      // kieu xe
-
-    public Car(String licensePlates, String manufacturerName, int yearOfManufacture, String owner) {
-    }
+    private int numberOfSeats;
+    private String typeCar;
 
     public Car(String licensePlates, String manufacturerName, int yearOfManufacture, String owner, int numberOfSeats, String typeCar) {
         super(licensePlates, manufacturerName, yearOfManufacture, owner);

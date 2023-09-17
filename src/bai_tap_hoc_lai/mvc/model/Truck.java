@@ -1,7 +1,7 @@
 package bai_tap_hoc_lai.mvc.model;
 
 public class Truck extends TranSport {
-    private int payload;    // Trọng tải
+    private int payload;
 
     public Truck() {
     }

@@ -1,7 +1,7 @@
 package bai_tap_hoc_lai.mvc.model;
 
 public class Motorbike extends TranSport {
-    private String wattage; // cong suat
+    private String wattage;
 
     public Motorbike() {
     }

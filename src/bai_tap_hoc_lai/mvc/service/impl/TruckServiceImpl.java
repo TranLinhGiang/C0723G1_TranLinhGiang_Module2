@@ -1,6 +1,6 @@
 package bai_tap_hoc_lai.mvc.service.impl;
 
-import bai_tap_hoc_lai.mvc.model.Car;
+
 import bai_tap_hoc_lai.mvc.model.Truck;
 import bai_tap_hoc_lai.mvc.repository.impl.TruckRepositoryImpl;
 import bai_tap_hoc_lai.mvc.service.ITruckService;

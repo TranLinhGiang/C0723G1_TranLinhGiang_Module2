@@ -26,7 +26,7 @@ public class Truck extends TranSport {
                 ", manufacturerName='" + getManufacturerName() + '\'' +
                 ", yearOfManufacture=" + getYearOfManufacture() +
                 ", owner='" + getOwner() + '\'' +
-                ", payload=" + payload +
+                ", payload=" + payload + "T" +
                 '}';
     }
 }

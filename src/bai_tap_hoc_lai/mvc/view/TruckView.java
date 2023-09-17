@@ -1,6 +1,7 @@
 package bai_tap_hoc_lai.mvc.view;
 
 import bai_tap_hoc_lai.mvc.model.Truck;
+import bai_tap_hoc_lai.mvc.utils.Regex;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,20 +19,38 @@ public class TruckView {
     }
 
     public Truck inputInfoTruck() {
-        System.out.println("Nhap bien kiem soat cua xe tai: ");
-        String licensePlates = scanner.nextLine();
+        String licensePlates;
+        do {
+            System.out.println("Nhap bien kiem soat cua xe tai ( xxTRUCK-yyyy ): ");
+            licensePlates = scanner.nextLine();
+            if (!Regex.licensePlatesTruck(licensePlates)) {
+                System.out.println("Nhap sai dinh dang, vui long nhap lai ( vd: 73TRUCK-0001 ): ");
+            }
+        } while (!Regex.licensePlatesTruck(licensePlates));
+
 
         System.out.println("Nhap ten hang xe xe tai: ");
         String manufacturerName = scanner.nextLine();
 
-        System.out.println("Nhap nam san xuat xe xe tai: ");
-        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
+        int yearOfManufacture;
+        do {
+            System.out.println("Nhap nam san xuat xe xe tai: ");
+            yearOfManufacture = Integer.parseInt(scanner.nextLine());
+            if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
+                System.out.println("Nam phai la 4 chu so ( vd: 2019 ): ");
+            }
+        } while (!Regex.yearAll(String.valueOf(yearOfManufacture)));
+
 
         System.out.println("Nhap chu so huu xe xe tai: ");
         String owner = scanner.nextLine();
 
-        System.out.println("Nhap trong tai cua xe tai: ");
-        int payload = Integer.parseInt(scanner.nextLine());
+        int payload;
+        do {
+            System.out.println("Nhap trong tai cua xe tai ( don vi la Tan ( >= 0T && <= 10T): ");
+            payload = Integer.parseInt(scanner.nextLine());
+        } while (payload <= 0 || payload >= 10);
+
 
         Truck newTruck = new Truck(licensePlates, manufacturerName, yearOfManufacture, owner, payload);
         return newTruck;

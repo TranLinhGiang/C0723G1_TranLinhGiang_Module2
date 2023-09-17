@@ -1,6 +1,7 @@
 package bai_tap_hoc_lai.mvc.view;
 
 import bai_tap_hoc_lai.mvc.model.Car;
+import bai_tap_hoc_lai.mvc.utils.Regex;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,25 +19,47 @@ public class CarView {
     }
 
     public Car inputInfoCar() {
-        System.out.println("Nhap bien kiem soat cua oto: ");
-        String licensePlates = scanner.nextLine();
+        String licensePlates;
+        do {
+            System.out.println("Nhap bien kiem soat cua oto ( xxCAR-yyyy ): ");
+            licensePlates = scanner.nextLine();
+            if (!Regex.licensePlatesCar(licensePlates)) {
+                System.out.println("Nhap sai dinh dang cua bien so xe ( vd: 73CAR-0000 ) : ");
+            }
+        } while (!Regex.licensePlatesCar(licensePlates));
+
 
         System.out.println("Nhap ten hang xe oto: ");
         String manufacturerName = scanner.nextLine();
+        int yearOfManufacture;
+        do {
+            System.out.println("Nhap nam san xuat xe oto ( XXXX ) : ");
+            yearOfManufacture = Integer.parseInt(scanner.nextLine());
+            if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
+                System.out.println("Nhap sai dinh dang, nam san xuat la 4 chu so: ");
+            }
+        } while (!Regex.yearAll(String.valueOf(yearOfManufacture)));
 
-        System.out.println("Nhap nam san xuat xe oto: ");
-        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Nhap chu so huu xe oto: ");
         String owner = scanner.nextLine();
+        int numberOfSeats;
+        do {
+            System.out.println("Nhap so cho ngoi cua xe oto (so cho ngoi > 0 || <= 45) : ");
+            numberOfSeats = Integer.parseInt(scanner.nextLine());
+        } while (numberOfSeats <= 0 || numberOfSeats >= 45);
 
-        System.out.println("Nhap so cho ngoi cua xe oto: ");
-        int numberOfSeats= Integer.parseInt(scanner.nextLine());
+        String typeCar;
+        do {
+            System.out.println("Nhap kieu xe oto (ca nhan, du lich, xe khach): ");
+            typeCar = scanner.nextLine();
+            if (!Regex.typeCar(typeCar)) {
+                System.out.println("Nhap sai dinh dang loai xe,vui long nhap lai: ");
+            }
+        } while (!Regex.typeCar(typeCar));
 
-        System.out.println("Nhap kieu xe oto (du lich, xe khach): ");
-        String typeCar= scanner.nextLine();
 
-        Car newCar = new Car(licensePlates, manufacturerName, yearOfManufacture, owner,numberOfSeats,typeCar);
+        Car newCar = new Car(licensePlates, manufacturerName, yearOfManufacture, owner, numberOfSeats, typeCar);
         return newCar;
     }
 
@@ -61,8 +84,9 @@ public class CarView {
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
-    public void displaySearch( Car car){
-        String result="Car { bien so xe: "+car.getLicensePlates()+", ten hang san xuat: "+car.getManufacturerName()+", nam san xuat: "+car.getYearOfManufacture()+", chu so huu: "+car.getOwner()+", so cho ngoi: "+car.getNumberOfSeats()+", kieu xe: "+car.getTypeCar();
-        System.out.println("Tim thay: "+ result);
+
+    public void displaySearch(Car car) {
+        String result = "Car { bien so xe: " + car.getLicensePlates() + ", ten hang san xuat: " + car.getManufacturerName() + ", nam san xuat: " + car.getYearOfManufacture() + ", chu so huu: " + car.getOwner() + ", so cho ngoi: " + car.getNumberOfSeats() + ", kieu xe: " + car.getTypeCar();
+        System.out.println("Tim thay: " + result);
     }
 }

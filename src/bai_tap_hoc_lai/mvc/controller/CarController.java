@@ -3,7 +3,6 @@ package bai_tap_hoc_lai.mvc.controller;
 import bai_tap_hoc_lai.mvc.model.Car;
 import bai_tap_hoc_lai.mvc.service.impl.CarServiceImpl;
 import bai_tap_hoc_lai.mvc.view.CarView;
-import bai_tap_hoc_lai.mvc.view.TranSportView;
 
 import java.util.Scanner;
 

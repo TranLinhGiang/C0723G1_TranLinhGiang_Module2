@@ -7,9 +7,9 @@ import bai_tap_hoc_lai.ss10_list.view.FruitView;
 import java.util.Scanner;
 
 public class FruitController {
-    FruitView view = new FruitView();
-    Scanner scanner = new Scanner(System.in);
-    FruitServiceImpl fruitService = new FruitServiceImpl();
+    private final FruitView view = new FruitView();
+    private final Scanner scanner = new Scanner(System.in);
+    private final FruitServiceImpl fruitService = new FruitServiceImpl();
     int choice;
 
     public void run() {

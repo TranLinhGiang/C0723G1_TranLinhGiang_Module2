@@ -7,9 +7,9 @@ import bai_tap_hoc_lai.mvc.view.MotorbikeView;
 import java.util.Scanner;
 
 public class MotorbikeController {
-    MotorbikeView motorbikeView = new MotorbikeView();
-    Scanner scanner = new Scanner(System.in);
-    MotorbikeServiceImpl motorbikeService = new MotorbikeServiceImpl();
+    private final MotorbikeView motorbikeView = new MotorbikeView();
+    private final Scanner scanner = new Scanner(System.in);
+    private final MotorbikeServiceImpl motorbikeService = new MotorbikeServiceImpl();
     int choiceMoto;
 
     public void runMoto() {
@@ -27,10 +27,10 @@ public class MotorbikeController {
                     motorbikeService.removeMotorbike(motorbikeView.licensePlatesRemove());
                     break;
                 case 4:
-                    Motorbike motorbike= motorbikeService.searchMotorbike(motorbikeView.inputSearch());
-                    if (motorbike==null){
+                    Motorbike motorbike = motorbikeService.searchMotorbike(motorbikeView.inputSearch());
+                    if (motorbike == null) {
                         System.out.println("Không tìm thấy");
-                    }else {
+                    } else {
                         motorbikeView.displaySearch(motorbike);
                     }
                     break;

@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class TranSportController {
     private final Scanner scanner = new Scanner(System.in);
 
-    CarController controller = new CarController();
-    TruckController truckController = new TruckController();
-    MotorbikeController motorbikeController = new MotorbikeController();
+    private final CarController controller = new CarController();
+    private final TruckController truckController = new TruckController();
+    private final MotorbikeController motorbikeController = new MotorbikeController();
     private final TranSportView tranSportView = new TranSportView();
 
     int choice;

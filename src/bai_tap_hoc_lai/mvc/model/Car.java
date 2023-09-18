@@ -29,12 +29,12 @@ public class Car extends TranSport {
     @Override
     public String toString() {
         return "Car{" +
-                "licensePlates='" + getLicensePlates() + '\'' +
-                ", manufacturerName='" + getManufacturerName() + '\'' +
-                ", yearOfManufacture=" + getYearOfManufacture() +
-                ", owner='" + getOwner() + '\'' +
-                "numberOfSeats=" + numberOfSeats +
-                ", typeCar='" + typeCar + '\'' +
+                "Biển số xe='" + getLicensePlates() + '\'' +
+                ", Tên hãng='" + getManufacturerName() + '\'' +
+                ", Năm sản xuất=" + getYearOfManufacture() +
+                ", Chủ sở hữu='" + getOwner() + '\'' +
+                ", Số chỗ ngồi=" + numberOfSeats +
+                ", Kiểu xe='" + typeCar + '\'' +
                 '}';
     }
 }

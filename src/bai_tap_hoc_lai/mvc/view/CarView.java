@@ -10,51 +10,51 @@ public class CarView {
     private final Scanner scanner = new Scanner(System.in);
 
     public void menuCar() {
-        System.out.println("1. Them moi o to");
-        System.out.println("2. Hien thi o to");
-        System.out.println("3. Xoa o to");
-        System.out.println("4. Tim kiem o to theo bien kiem soat");
-        System.out.println("5. Tro ve menu chinh");
-        System.out.println(" Moi chon chuc nang: ");
+        System.out.println("1. Thêm mới ô tô");
+        System.out.println("2. Hiển thị danh sách ô tô");
+        System.out.println("3. Xóa ô tô");
+        System.out.println("4. Tìm kiếm ô tô theo biển kiểm soát");
+        System.out.println("5. Trở về menu chính");
+        System.out.println(" Mời chọn chức năng: ");
     }
 
     public Car inputInfoCar() {
         String licensePlates;
         do {
-            System.out.println("Nhap bien kiem soat cua oto ( xxCAR-yyyy ): ");
+            System.out.println("Nhập biển kiểm soát của ô tô ( xxCAR-yyyy ): ");
             licensePlates = scanner.nextLine();
             if (!Regex.licensePlatesCar(licensePlates)) {
-                System.out.println("Nhap sai dinh dang cua bien so xe ( vd: 73CAR-0000 ) : ");
+                System.out.println("Nhập sai định dạng của biển số xe ( vd: 73CAR-0000 ) : ");
             }
         } while (!Regex.licensePlatesCar(licensePlates));
 
 
-        System.out.println("Nhap ten hang xe oto: ");
+        System.out.println("Nhập tên hãng xe: ");
         String manufacturerName = scanner.nextLine();
         int yearOfManufacture;
         do {
-            System.out.println("Nhap nam san xuat xe oto ( vd: 2019 ) : ");
+            System.out.println("Nhập năm sản xuất xe ô tô ( vd: 2019 ) : ");
             yearOfManufacture = Integer.parseInt(scanner.nextLine());
             if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
-                System.out.println("Nhap sai dinh dang, nam san xuat la 4 chu so: ");
+                System.out.println("Nhập sai định dạng, năm phải là 4 chữ số: ");
             }
         } while (!Regex.yearAll(String.valueOf(yearOfManufacture)));
 
 
-        System.out.println("Nhap chu so huu xe oto: ");
+        System.out.println("Nhập chủ sở hữu xe ô tô: ");
         String owner = scanner.nextLine();
         int numberOfSeats;
         do {
-            System.out.println("Nhap so cho ngoi cua xe oto (so cho ngoi > 0 || <= 45) : ");
+            System.out.println("Nhập số chỗ ngồi (số chỗ ngồi > 0 || <= 45) : ");
             numberOfSeats = Integer.parseInt(scanner.nextLine());
         } while (numberOfSeats <= 0 || numberOfSeats >= 45);
 
         String typeCar;
         do {
-            System.out.println("Nhap kieu xe oto (ca nhan, du lich, xe khach): ");
+            System.out.println("Nhập kiểu xe (ca nhan, du lich, xe khach): ");
             typeCar = scanner.nextLine();
             if (!Regex.typeCar(typeCar)) {
-                System.out.println("Nhap sai dinh dang loai xe,vui long nhap lai: ");
+                System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
             }
         } while (!Regex.typeCar(typeCar));
 
@@ -64,29 +64,29 @@ public class CarView {
     }
 
     public String licensePlatesRemove() {
-        System.out.println("Nhap bien so xe ban muon xoa: ");
+        System.out.println("Nhập biển số xe bạn muốn xóa: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public void displayCar(List<Car> cars) {
         if (cars.size() == 0) {
-            System.out.println("Danh sach rong");
+            System.out.println("Chưa có danh sách xe");
         } else {
             for (Car car : cars) {
-                System.out.println("Danh sach: " + car);
+                System.out.println("Danh sách: " + car);
             }
         }
     }
 
     public String inputSearch() {
-        System.out.println("Nhap bien so xe ban muon tim: ");
+        System.out.println("Nhập biển số bạn muốn tìm: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public void displaySearch(Car car) {
-        String result = "Car { bien so xe: " + car.getLicensePlates() + ", ten hang san xuat: " + car.getManufacturerName() + ", nam san xuat: " + car.getYearOfManufacture() + ", chu so huu: " + car.getOwner() + ", so cho ngoi: " + car.getNumberOfSeats() + ", kieu xe: " + car.getTypeCar();
-        System.out.println("Tim thay: " + result);
+        String result = "Car { Biển số xe: " + car.getLicensePlates() + ", Tên hãng sản xuất: " + car.getManufacturerName() + ", Năm sản xuất: " + car.getYearOfManufacture() + ", Chủ sở hữu: " + car.getOwner() + ", Số chỗ ngồi: " + car.getNumberOfSeats() + ", Kiểu xe: " + car.getTypeCar();
+        System.out.println("Tìm thấy: " + result);
     }
 }

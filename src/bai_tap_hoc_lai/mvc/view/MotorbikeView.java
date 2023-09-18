@@ -11,46 +11,46 @@ public class MotorbikeView {
     private final Scanner scanner = new Scanner(System.in);
 
     public void menuMotorbike() {
-        System.out.println("1. Them moi xe may");
-        System.out.println("2. Hien thi xe may");
-        System.out.println("3. Xoa xe may");
-        System.out.println("4. Tim kiem xe may theo bien kiem soat");
-        System.out.println("5. Tro ve menu chinh");
-        System.out.println(" Moi chon chuc nang: ");
+        System.out.println("1. Thêm mới xe máy");
+        System.out.println("2. Hiển thị xe máy");
+        System.out.println("3. Xóa xe máy");
+        System.out.println("4. Tìm kiếm xe máy bằng biển kiểm soát");
+        System.out.println("5. Trở về menu chính");
+        System.out.println(" Mời chọn chức năng: ");
     }
 
     public Motorbike inputInfoMotorbike() {
         String licensePlates;
         do {
-            System.out.println("Nhap bien kiem soat cua xe may ( xxMOTO-yyyy ) : ");
+            System.out.println("Nhập biển kiểm soát của xe máy ( xxMOTO-yyyy ) : ");
             licensePlates = scanner.nextLine();
             if (!Regex.licensePlatesMoto(licensePlates)) {
-                System.out.println("ban nhap sai dinh dang bien so xe,vui long nhap lai ( vd: 73MOTO-0001 ): ");
+                System.out.println("Nhập sai định dạng, vui lòng nhập lại ( vd: 73MOTO-0001 ): ");
             }
         } while (!Regex.licensePlatesMoto(licensePlates));
 
 
-        System.out.println("Nhap ten hang xe xe may: ");
+        System.out.println("Nhập tên hãng xe: ");
         String manufacturerName = scanner.nextLine();
         int yearOfManufacture;
         do {
-            System.out.println("Nhap nam san xuat xe xe may: ");
+            System.out.println("Nhập năm sản xuất: ");
             yearOfManufacture = Integer.parseInt(scanner.nextLine());
             if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
-                System.out.println("ban nhap sai dinh dang, nam gom 4 so, vui long nhap lai ( vd: 2019 ): ");
+                System.out.println("Nhập sai định dạng,vui lòng nhập lại ( vd: 2019 ): ");
             }
         } while (!Regex.yearAll(String.valueOf(yearOfManufacture)));
 
 
-        System.out.println("Nhap chu so huu xe xe may: ");
+        System.out.println("Nhập chủ sở hữu xe máy: ");
         String owner = scanner.nextLine();
 
         String wattage;
         do {
-            System.out.println("Nhap cong suat cua xe may ( manh | yeu | qua yeu ): ");
+            System.out.println("Nhập công suất xe máy ( manh | yeu | qua yeu ): ");
             wattage = scanner.nextLine();
             if (!Regex.wattageMoto(wattage)) {
-                System.out.println("Nhap sai dinh dang, vui long nhap lai: ");
+                System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
             }
         } while (!Regex.wattageMoto(wattage));
 
@@ -61,29 +61,29 @@ public class MotorbikeView {
 
     public void displayMoto(List<Motorbike> motorbikes) {
         if (motorbikes.size() == 0) {
-            System.out.println("Danh sach rong");
+            System.out.println("Chưa có danh sách");
             System.out.println("");
         } else {
             for (Motorbike motorbikeList : motorbikes) {
-                System.out.println("Danh sach: " + motorbikeList);
+                System.out.println("Danh sách: " + motorbikeList);
             }
         }
     }
 
     public String licensePlatesRemove() {
-        System.out.println("Nhap bien so xe ban muon xoa: ");
+        System.out.println("Nhập biển số xe banj muốn xóa: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public String inputSearch() {
-        System.out.println("Nhap bien so xe ban muon tim: ");
+        System.out.println("Nhập biển số xe bạn muốn tìm: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public void displaySearch(Motorbike motorbike) {
-        String result = "Car { bien so xe: " + motorbike.getLicensePlates() + ", ten hang san xuat: " + motorbike.getManufacturerName() + ", nam san xuat: " + motorbike.getYearOfManufacture() + ", chu so huu: " + motorbike.getOwner() + ", cong suat: " + motorbike.getWattage();
-        System.out.println("Tim thay: " + result);
+        String result = "Car { Biển số xe: " + motorbike.getLicensePlates() + ", Tên hãng sản xuất: " + motorbike.getManufacturerName() + ", Năm sản xuất: " + motorbike.getYearOfManufacture() + ", Chủ sở hữu: " + motorbike.getOwner() + ", Công suất: " + motorbike.getWattage();
+        System.out.println("Tìm thấy: " + result);
     }
 }

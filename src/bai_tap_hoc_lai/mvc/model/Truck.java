@@ -22,11 +22,11 @@ public class Truck extends TranSport {
     @Override
     public String toString() {
         return "Truck{" +
-                "licensePlates='" + getLicensePlates() + '\'' +
-                ", manufacturerName='" + getManufacturerName() + '\'' +
-                ", yearOfManufacture=" + getYearOfManufacture() +
-                ", owner='" + getOwner() + '\'' +
-                ", payload=" + payload + "T" +
+                "Biển số xe='" + getLicensePlates() + '\'' +
+                ", Tên hãng sản xuất='" + getManufacturerName() + '\'' +
+                ", Năm sản xuất=" + getYearOfManufacture() +
+                ", Chủ sở hữu='" + getOwner() + '\'' +
+                ", Trọng tải=" + payload + "T" +
                 '}';
     }
 }

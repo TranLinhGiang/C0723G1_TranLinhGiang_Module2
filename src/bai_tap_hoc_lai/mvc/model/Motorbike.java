@@ -22,11 +22,11 @@ public class Motorbike extends TranSport {
     @Override
     public String toString() {
         return "motorbike{" +
-                "licensePlates='" + getLicensePlates() + '\'' +
-                ", manufacturerName='" + getManufacturerName() + '\'' +
-                ", yearOfManufacture=" + getYearOfManufacture() +
-                ", owner='" + getOwner() + '\'' +
-                ", wattage='" + wattage + '\'' +
+                "Biển số xe='" + getLicensePlates() + '\'' +
+                ", tên hãng sản xuất='" + getManufacturerName() + '\'' +
+                ", Năm sản xuất=" + getYearOfManufacture() +
+                ", Chủ sở hữu='" + getOwner() + '\'' +
+                ", Công suất='" + wattage + '\'' +
                 '}';
     }
 }

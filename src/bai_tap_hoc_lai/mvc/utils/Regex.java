@@ -11,7 +11,7 @@ public class Regex {
     private static final String LICENSEPLATESTRUCK_REGEX = "^[0-9]{2}[TRUCK]{5}([-])([0-9]){4}$";
     private static final String WATTAGEMOTO_REGEX = "^(manh|yeu|qua yeu)$";
     private static final String TYPECAR_REGEX = "^(ca nhan|du lich|xe khach)$";
-    private static final String YEAR_REGEX = "^[0-9]{4}$";   // chung cho tat ca
+    private static final String YEAR_REGEX = "^[0-9]{4}$";
 
 
     public static boolean licensePlatesTruck(String licensePlatesTruck) {

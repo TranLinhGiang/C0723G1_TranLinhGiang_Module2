@@ -10,44 +10,44 @@ public class TruckView {
     Scanner scanner = new Scanner(System.in);
 
     public void menuTruck() {
-        System.out.println("1. Them moi xe tai");
-        System.out.println("2. Hien thi xe tai");
-        System.out.println("3. Xoa xe tai");
-        System.out.println("4. Tim kiem xe tai theo bien kiem soat");
-        System.out.println("5. Tro ve menu chinh");
-        System.out.println(" Moi chon chuc nang: ");
+        System.out.println("1. Thêm mới xe tải");
+        System.out.println("2. Hiển thị xe tải");
+        System.out.println("3. Xóa xe tải");
+        System.out.println("4. Tìm kiếm xe tải theo biển số xe");
+        System.out.println("5. Trở về menu chính");
+        System.out.println(" Mời chọn chức nắng: ");
     }
 
     public Truck inputInfoTruck() {
         String licensePlates;
         do {
-            System.out.println("Nhap bien kiem soat cua xe tai ( xxTRUCK-yyyy ): ");
+            System.out.println("Nhập biển số xe của xe tải ( xxTRUCK-yyyy ): ");
             licensePlates = scanner.nextLine();
             if (!Regex.licensePlatesTruck(licensePlates)) {
-                System.out.println("Nhap sai dinh dang, vui long nhap lai ( vd: 73TRUCK-0001 ): ");
+                System.out.println("Nhập sai định dạng, vui lòng nhập lại ( vd: 73TRUCK-0001 ): ");
             }
         } while (!Regex.licensePlatesTruck(licensePlates));
 
 
-        System.out.println("Nhap ten hang xe xe tai: ");
+        System.out.println("Nhập tên hãng xe: ");
         String manufacturerName = scanner.nextLine();
 
         int yearOfManufacture;
         do {
-            System.out.println("Nhap nam san xuat xe xe tai: ");
+            System.out.println("Nhập năm sản xuất của xe tải: ");
             yearOfManufacture = Integer.parseInt(scanner.nextLine());
             if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
-                System.out.println("Nam phai la 4 chu so ( vd: 2019 ): ");
+                System.out.println("Năm phải là 4 chữ số ( vd: 2019 ): ");
             }
         } while (!Regex.yearAll(String.valueOf(yearOfManufacture)));
 
 
-        System.out.println("Nhap chu so huu xe xe tai: ");
+        System.out.println("Nhập chủ sở hữu của xe tải: ");
         String owner = scanner.nextLine();
 
         int payload;
         do {
-            System.out.println("Nhap trong tai cua xe tai ( don vi la Tan ( >= 0T && <= 10T): ");
+            System.out.println("Nhập trọng tải của xe tải ( Đơn vị là tấn ( >= 0T && <= 10T): ");
             payload = Integer.parseInt(scanner.nextLine());
         } while (payload <= 0 || payload >= 10);
 
@@ -58,28 +58,28 @@ public class TruckView {
 
     public void displayTruck(List<Truck> trucks) {
         if (trucks.size() == 0) {
-            System.out.println("Danh sach rong");
+            System.out.println("Chưa có danh sách");
         } else {
             for (Truck truck : trucks) {
-                System.out.println("Danh sach: " + truck);
+                System.out.println("Danh sách: " + truck);
             }
         }
     }
 
     public String licensePlatesRemove() {
-        System.out.println("Nhap bien so xe ban muon xoa: ");
+        System.out.println("Nhập biển số xe bạn muốn xóa: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public String inputSearch() {
-        System.out.println("Nhap bien so xe ban muon tim: ");
+        System.out.println("Nhập biển số xe bạn muốn tìm: ");
         String licensePlates = scanner.nextLine();
         return licensePlates;
     }
 
     public void displaySearch(Truck truck) {
-        String result = "Car { bien so xe: " + truck.getLicensePlates() + ", ten hang san xuat: " + truck.getManufacturerName() + ", nam san xuat: " + truck.getYearOfManufacture() + ", chu so huu: " + truck.getOwner() + ", trong tai: " + truck.getPayload();
-        System.out.println("Tim thay: " + result);
+        String result = "Car { Biển số xe: " + truck.getLicensePlates() + ", Tên hãng sản xuất: " + truck.getManufacturerName() + ", Năm sản xuất: " + truck.getYearOfManufacture() + ", Chủ sở hữu: " + truck.getOwner() + ", Trọng tải: " + truck.getPayload();
+        System.out.println("Tìm thấy: " + result);
     }
 }

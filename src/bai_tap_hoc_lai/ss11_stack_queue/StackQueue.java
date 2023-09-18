@@ -3,6 +3,7 @@ package bai_tap_hoc_lai.ss11_stack_queue;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class StackQueue {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class StackQueue {
         System.out.println("Nhập n số: ");
         n = Integer.parseInt(scanner.nextLine());
 
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         for (int i = 2; i <= n; i++) {
             if (isPrime(i)) {

@@ -29,7 +29,7 @@ public class CarController {
                 case 4:
                     Car car = carService.searchCar(carView.inputSearch());
                     if (car == null) {
-                        System.out.println("Khong tim thay");
+                        System.out.println("Không tìm thấy");
                     } else {
                         carView.displaySearch(car);
                     }

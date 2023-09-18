@@ -30,7 +30,7 @@ public class TruckController {
                 case 4:
                     Truck truck = truckService.searchTruck(truckView.inputSearch());
                     if (truck == null) {
-                        System.out.println("Khong tim thay");
+                        System.out.println("Không tìm thấy");
                     } else {
                         truckView.displaySearch(truck);
                     }

@@ -29,7 +29,7 @@ public class MotorbikeController {
                 case 4:
                     Motorbike motorbike= motorbikeService.searchMotorbike(motorbikeView.inputSearch());
                     if (motorbike==null){
-                        System.out.println("Khong tim thay");
+                        System.out.println("Không tìm thấy");
                     }else {
                         motorbikeView.displaySearch(motorbike);
                     }

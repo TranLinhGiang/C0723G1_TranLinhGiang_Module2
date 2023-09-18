@@ -33,7 +33,7 @@ public class CarView {
         String manufacturerName = scanner.nextLine();
         int yearOfManufacture;
         do {
-            System.out.println("Nhap nam san xuat xe oto ( XXXX ) : ");
+            System.out.println("Nhap nam san xuat xe oto ( vd: 2019 ) : ");
             yearOfManufacture = Integer.parseInt(scanner.nextLine());
             if (!Regex.yearAll(String.valueOf(yearOfManufacture))) {
                 System.out.println("Nhap sai dinh dang, nam san xuat la 4 chu so: ");

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FruitView {
-    Scanner scanner = new Scanner(System.in);
+  private final   Scanner scanner = new Scanner(System.in);
 
     public void showMenu() {
         System.out.println("=== Menu Fruit ===");

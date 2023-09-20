@@ -32,7 +32,7 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "Mã ='" + getId() + '\'' +
+                "Mã khách hàng ='" + getId() + '\'' +
                 ", Họ và tên='" + getName() + '\'' +
                 ", Ngày tháng năm sinh='" + getDateOfBirth() + '\'' +
                 ", Giới tính='" + getGender() + '\'' +

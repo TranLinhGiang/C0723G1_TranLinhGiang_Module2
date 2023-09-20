@@ -28,7 +28,7 @@ public class PayRepositoryImpl implements IPayRepository {
             if (valueRemove.getId() == id) {
                 index = payList.indexOf(valueRemove);
                 payList.remove(index);
-                break;
+              break;
             }
         }
         FileUtils.writeFile(PATH_FILE,convertToString(payList));
@@ -42,7 +42,7 @@ public class PayRepositoryImpl implements IPayRepository {
             if (valueEdit.getId() == id) {
                 index = payList.indexOf(valueEdit);
                 payList.set(index, pay);
-                break;
+             break;
             }
         }
         FileUtils.writeFile(PATH_FILE,convertToString(payList));

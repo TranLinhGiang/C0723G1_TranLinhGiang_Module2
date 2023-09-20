@@ -42,7 +42,7 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return "Employee{" +
-                "Mã ='" + getId() + '\'' +
+                "Mã nhân viên ='" + getId() + '\'' +
                 ", Họ và tên='" + getName() + '\'' +
                 ", Ngày tháng năm sinh='" + getDateOfBirth() + '\'' +
                 ", Giới tính='" + getGender() + '\'' +

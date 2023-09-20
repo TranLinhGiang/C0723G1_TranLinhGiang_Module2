@@ -16,7 +16,7 @@ public class SpendingRepositoryImpl implements ISpendingRepository {
         spendings.sort(new Comparator<Spending>() {
             @Override
             public int compare(Spending o1, Spending o2) {
-                return Integer.parseInt(o1.getId() + Integer.parseInt(o2.getId()));
+                return Integer.parseInt(o1.getId()) - Integer.parseInt(o2.getId());
             }
         });
         return spendings;

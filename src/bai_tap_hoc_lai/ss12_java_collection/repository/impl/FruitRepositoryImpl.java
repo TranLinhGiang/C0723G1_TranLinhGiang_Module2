@@ -8,7 +8,7 @@ import java.util.Map;
 
 
 public class FruitRepositoryImpl implements IFruitRepository {
-    private final HashMap<Integer, Fruit> fruitHashMap = new HashMap<>();
+    private final Map<Integer, Fruit> fruitHashMap = new HashMap<>();
     private int count;
 
     @Override
@@ -41,6 +41,6 @@ public class FruitRepositoryImpl implements IFruitRepository {
 
     @Override
     public HashMap<Integer, Fruit> getList() {
-        return fruitHashMap;
+        return (HashMap<Integer, Fruit>) fruitHashMap;
     }
 }

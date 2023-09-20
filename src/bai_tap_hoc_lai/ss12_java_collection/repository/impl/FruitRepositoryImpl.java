@@ -30,7 +30,6 @@ public class FruitRepositoryImpl implements IFruitRepository {
 
     @Override
     public void editFruit(Integer id, Fruit fruit) {
-        int index;
         for (Map.Entry<Integer, Fruit> valueRemove : fruitHashMap.entrySet()) {
             if (id.equals(valueRemove.getValue().getId())) {
                 fruitHashMap.put(id,fruit);

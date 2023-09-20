@@ -2,27 +2,28 @@ package bai_tap_hoc_lai.ss13_search.repository.impl;
 
 import bai_tap_hoc_lai.ss13_search.model.Spending;
 import bai_tap_hoc_lai.ss13_search.repository.ISpendingRepository;
-import bai_tap_hoc_lai.ss13_search.utils.FileUtils;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SpendingRepositoryImpl implements ISpendingRepository {
-    private final String PATH_FILE = "";
-    private final String COMMA = ",";
-
     List<Spending> spendings = new ArrayList<>();
 
     @Override
 
     public List<Spending> getSpending() {
-//        List<Spending> spendings = convertToE(FileUtils.readFile(PATH_FILE));
-        return this.spendings;
+        spendings.sort(new Comparator<Spending>() {
+            @Override
+            public int compare(Spending o1, Spending o2) {
+                return Integer.parseInt(o1.getId() + Integer.parseInt(o2.getId()));
+            }
+        });
+        return spendings;
     }
 
     @Override
     public void addSpending(Spending spending) {
-//        List<Spending> spendings = convertToE(FileUtils.readFile(PATH_FILE));
         spendings.add(spending);
     }
 
@@ -65,7 +66,7 @@ public class SpendingRepositoryImpl implements ISpendingRepository {
     @Override
     public Spending searchName(String name) {
         for (Spending valueSearch : spendings) {
-            if (valueSearch.getId().contains(name)) {
+            if (valueSearch.getName().contains(name)) {
                 return valueSearch;
             }
             break;

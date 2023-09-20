@@ -7,8 +7,7 @@ public class Pay {
     private double money;
     private String describe;
 
-    public Pay() {
-    }
+
 
     public Pay(int id, String name, int day, double money, String describe) {
         this.id = id;
@@ -65,7 +64,7 @@ public class Pay {
                 ", Tên chi tiêu='" + name + '\'' +
                 ", Ngày chi tiêu=" + day +
                 ", Số tiền chi tiêu=" + money +
-                ", Mô ='" + describe + '\'' +
+                ", Mô tả ='" + describe + '\'' +
                 '}';
     }
 }

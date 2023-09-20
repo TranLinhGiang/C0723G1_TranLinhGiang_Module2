@@ -43,4 +43,50 @@ public class PayView {
             }
         }
     }
+
+    public int idRemove() {
+        System.out.println("Nhập id bạn muốn xóa: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        return id;
+    }
+
+    public int idEdit() {
+        System.out.println("Nhập id bạn muốn sửa: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        return id;
+    }
+
+    public Pay inputEditPay() {
+        System.out.println("Nhập mã chi tiêu mới: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập tên chi tiêu mới: ");
+        String name = scanner.nextLine();
+        System.out.println("Nhập ngày chi tiêu mới");
+        int day = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập số tiền chi tiêu mới: ");
+        double money = Double.parseDouble(scanner.nextLine());
+        System.out.println("Nhập tả mới: ");
+        String describe = scanner.nextLine();
+
+        Pay newPay = new Pay(id, name, day, money, describe);
+        return newPay;
+    }
+
+    public int idSearch() {
+        System.out.println("Nhập id bạn muốn tìm: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        return id;
+    }
+
+    public void displaySearch(Pay pay) {
+        String result = "  Pay { Mã chi tiêu = " + pay.getId() + ", Tên chi tiêu = " + pay.getName() + ", Ngày chi tiêu = " + pay.getDay() + ", Số tiền chi tiêu = " + pay.getMoney() + ", Mô tả = " + pay.getDescribe();
+        System.out.println("Tìm thấy" + result);
+    }
+
+    public String nameSearch() {
+        System.out.println("Nhập tên bạn muốn tìm: ");
+        String name = scanner.nextLine();
+        return name;
+    }
+
 }

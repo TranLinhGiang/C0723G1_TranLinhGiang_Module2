@@ -2,6 +2,8 @@ package bai_tap_hoc_lai.ss13_search.repository;
 
 import bai_tap_hoc_lai.ss13_search.model.Spending;
 
+import java.util.List;
+
 public interface ISpendingRepository extends IRepository<Spending> {
     void removeSpending(String id);
 
@@ -9,5 +11,5 @@ public interface ISpendingRepository extends IRepository<Spending> {
 
     Spending searchId(String id);
 
-    Spending searchName(String name);
+    List<Spending> searchName(String name);
 }

@@ -1,6 +1,7 @@
 package bai_tap_hoc_lai.case_study.view;
 
 import bai_tap_hoc_lai.case_study.model.persion.Employee;
+import bai_tap_hoc_lai.case_study.utils.Regex;
 
 import java.util.List;
 import java.util.Scanner;
@@ -30,26 +31,65 @@ public class EmployeeView {
     }
 
     public Employee inputEmployee() {
-        System.out.println("Nhập mã nhân viên: ");
-        String id = scanner.nextLine();
+        String id;
+        do {
+            System.out.println("Nhập mã nhân viên ( NV-YYYY ): ");
+            id = scanner.nextLine();
+            if (!Regex.idEmployee(id)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
 
-        System.out.println("Nhập họ tên nhân viên:");
-        String name = scanner.nextLine();
+        } while (!Regex.idEmployee(id));
+
+        String name;
+        do {
+            System.out.println("Nhập họ tên nhân viên ( viết hoa các ký tự đầu mỗi từ ):");
+            name = scanner.nextLine();
+            if (!Regex.nameAll(name)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.nameAll(name));
+
 
         System.out.println("Nhập ngày tháng năm sinh nhân viên: ");
         String dateOfBirth = scanner.nextLine();
 
-        System.out.println("Nhập số chứng minh nhân dân của nhân viên: ");
-        String idCardNumber = scanner.nextLine();
+        String idCardNumber;
+        do {
+            System.out.println("Nhập số chứng minh nhân dân của nhân viên ( CMND phải đủ 9 hoặc 12 số ): ");
+            idCardNumber = scanner.nextLine();
+            if (!Regex.idCardAll(idCardNumber)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.idCardAll(idCardNumber));
 
-        System.out.println("Nhập giới tính của nhân viên: ");
-        String gender = scanner.nextLine();
+        String gender;
+        do {
+            System.out.println("Nhập giới tính của nhân viên ( male || female ): ");
+            gender = scanner.nextLine();
+            if (!Regex.genderAll(gender)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.genderAll(gender));
 
-        System.out.println("Nhập số điện thoại của nhân viên: ");
-        String phoneNumber = scanner.nextLine();
+        String phoneNumber;
+        do {
+            System.out.println("Nhập số điện thoại của nhân viên ( số điện thoại phải bắt đầu bằng 0 và dủ 10 số ): ");
+            phoneNumber = scanner.nextLine();
+            if (!Regex.phoneNumber(phoneNumber)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.phoneNumber(phoneNumber));
 
-        System.out.println("Nhập email của nhân viên: ");
-        String email = scanner.nextLine();
+        String email;
+        do {
+            System.out.println("Nhập email của nhân viên ( vd: abc123@gmail.com ): ");
+            email = scanner.nextLine();
+            if (!Regex.emailAll(email)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.emailAll(email));
+
 
         System.out.println("Nhập trình độ của nhân viên: ");
         String lever = scanner.nextLine();
@@ -116,6 +156,7 @@ public class EmployeeView {
         String result = "Employee { Mã nhân viên = " + employee.getId() + ", Họ và tên = " + employee.getName() + ", Ngày tháng năm sinh = " + employee.getDateOfBirth() + ", Giới tính = " + employee.getGender() + ", Số chứng minnh nhân dân = " + employee.getIdCardNumber() + ", Số điện thoại = " + employee.getPhoneNumber() + ", email='" + employee.getEmail() + ", Trình độ = " + employee.getLever() + ", Vị trí = " + employee.getLocation() + ", Lương = " + employee.getSalary();
         System.out.println("Tìm thấy: " + result);
     }
+
     public String idSearchEmployee() {
         System.out.println("Nhập id nhân viên bạn muốn  : ");
         String id = scanner.nextLine();

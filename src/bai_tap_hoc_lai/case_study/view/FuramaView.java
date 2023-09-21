@@ -9,6 +9,7 @@ public class FuramaView {
         System.out.println("3. Quản lý cơ sở vật chất");
         System.out.println("4. Quản lý đặt chỗ");
         System.out.println("5. Quản lý khuyến mãi");
+        System.out.println("6. Thoát chương trình");
         System.out.println(" Mời chọn chức năng: ");
     }
 }

@@ -2,6 +2,8 @@ package bai_tap_hoc_lai.ss13_search.service;
 
 import bai_tap_hoc_lai.ss13_search.model.Spending;
 
+import java.util.List;
+
 public interface ISpendingService extends IService<Spending> {
     void removeSpending(String id);
 
@@ -9,5 +11,5 @@ public interface ISpendingService extends IService<Spending> {
 
     Spending searchId(String id);
 
-    Spending searchName(String name);
+    List<Spending> searchName(String name);
 }

@@ -34,8 +34,10 @@ public class FuramaController {
                 case 5:
                     promotionController.runPromotion();
                     break;
+                case 6:
+                    break;
             }
-        } while (choice != 0);
+        } while (choice != 6);
 
     }
 }

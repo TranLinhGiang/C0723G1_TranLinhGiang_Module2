@@ -4,6 +4,7 @@ import bai_tap_hoc_lai.ss13_search.model.Spending;
 import bai_tap_hoc_lai.ss13_search.service.impl.SpendingServiceImpl;
 import bai_tap_hoc_lai.ss13_search.view.SpendingView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class SpendingController {
@@ -40,8 +41,8 @@ public class SpendingController {
                     break;
                 case 6:
                     String name = view.nameSearch();
-                    Spending spending1 = spendingService.searchName(name);
-                    if (spendingService.searchName(name) != null) {
+                    List<Spending> spending1 = spendingService.searchName(name);
+                    if (spending1.size() > 0) {
                         System.out.println(spending1);
                     } else {
                         System.out.println("Không tìm thấy");

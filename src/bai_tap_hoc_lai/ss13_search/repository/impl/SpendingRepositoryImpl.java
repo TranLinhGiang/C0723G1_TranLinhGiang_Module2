@@ -72,20 +72,19 @@ public class SpendingRepositoryImpl implements ISpendingRepository {
 
             }
         }
-        FileUtils.writeFile(PATH_FILE,convertToString(spendings));
         return null;
     }
 
     @Override
-    public Spending searchName(String name) {
+    public List<Spending> searchName(String name) {
+        List<Spending> result = new ArrayList<>();
         List<Spending> spendings = convertToE(FileUtils.readFile(PATH_FILE));
         for (Spending valueSearch : spendings) {
             if (valueSearch.getName().contains(name)) {
-                return valueSearch;
+                result.add(valueSearch);
             }
         }
-        FileUtils.writeFile(PATH_FILE,convertToString(spendings));
-        return null;
+        return result;
     }
 
     public List<String> convertToString(List<Spending> e) {

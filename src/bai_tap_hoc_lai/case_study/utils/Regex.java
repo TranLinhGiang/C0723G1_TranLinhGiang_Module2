@@ -1,5 +1,52 @@
 package bai_tap_hoc_lai.case_study.utils;
 
-public class Regex {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+public class Regex {
+    private static Pattern pattern;
+    private static Matcher matcher;
+
+    private static final String IDEMPLOYEE_REGEX = "^NV-[0-9]{4}$";
+    private static final String NAME_REGEX = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
+    private static final String IDCARD_REGEX = "^(\\d{9}|[0-9]{12})$";
+    private static final String GENDER_REGEX = "^(male|female)$";
+    private static final String PHONENUMBER_REGEX = "^0[0-9]{9}$";
+    private static final String EMAIL_REGEX = "^[a-z]+([0-9]*)([@]{1})(gmail{1})*([.]{1})([com]{1})*$";
+
+    public static boolean emailAll(String emailAll) {
+        pattern = Pattern.compile(EMAIL_REGEX);
+        matcher = pattern.matcher(emailAll);
+        return matcher.matches();
+    }
+
+    public static boolean phoneNumber(String phoneNumber) {
+        pattern = Pattern.compile(PHONENUMBER_REGEX);
+        matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
+    }
+
+    public static boolean genderAll(String genderAll) {
+        pattern = Pattern.compile(GENDER_REGEX);
+        matcher = pattern.matcher(genderAll);
+        return matcher.matches();
+    }
+
+    public static boolean idEmployee(String idEmployee) {
+        pattern = Pattern.compile(IDEMPLOYEE_REGEX);
+        matcher = pattern.matcher(idEmployee);
+        return matcher.matches();
+    }
+
+    public static boolean nameAll(String nameAll) {
+        pattern = Pattern.compile(NAME_REGEX);
+        matcher = pattern.matcher(nameAll);
+        return matcher.matches();
+    }
+
+    public static boolean idCardAll(String idCardAll) {
+        pattern = Pattern.compile(IDCARD_REGEX);
+        matcher = pattern.matcher(idCardAll);
+        return matcher.matches();
+    }
 }

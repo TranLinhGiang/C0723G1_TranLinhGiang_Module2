@@ -35,7 +35,7 @@ public class SpendingServiceImpl implements ISpendingService {
     }
 
     @Override
-    public Spending searchName(String name) {
+    public List<Spending> searchName(String name) {
         return spendingRepository.searchName(name);
     }
 }

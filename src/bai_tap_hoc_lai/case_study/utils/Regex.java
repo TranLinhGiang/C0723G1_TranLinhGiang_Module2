@@ -13,6 +13,20 @@ public class Regex {
     private static final String GENDER_REGEX = "^(male|female)$";
     private static final String PHONENUMBER_REGEX = "^0[0-9]{9}$";
     private static final String EMAIL_REGEX = "^[a-z]+([0-9]*)([@]{1})(gmail{1})*([.]{1})([com]{1})*$";
+    private static final String LEVER_REGEX = "^(trung cap|cao dang|dai hoc|sau dai hoc)$";
+    private static final String LOCATION_REGEX = "^(le tan|phuc vu|chuyen vien|giam sat|quan ly|giam doc)$";
+
+    public static boolean locationEmployee(String locationEmployee) {
+        pattern = Pattern.compile(LOCATION_REGEX);
+        matcher = pattern.matcher(locationEmployee);
+        return matcher.matches();
+    }
+
+    public static boolean leverEmployee(String leverEmployee) {
+        pattern = Pattern.compile(LEVER_REGEX);
+        matcher = pattern.matcher(leverEmployee);
+        return matcher.matches();
+    }
 
     public static boolean emailAll(String emailAll) {
         pattern = Pattern.compile(EMAIL_REGEX);

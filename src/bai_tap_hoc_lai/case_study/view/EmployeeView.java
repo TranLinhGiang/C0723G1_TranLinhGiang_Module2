@@ -90,15 +90,26 @@ public class EmployeeView {
             }
         } while (!Regex.emailAll(email));
 
+        String lever;
+        do {
+            System.out.println("Nhập trình độ của nhân viên (trung cap|cao dang|dai hoc|sau dai hoc): ");
+            lever = scanner.nextLine();
+            if (!Regex.leverEmployee(lever)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.leverEmployee(lever));
 
-        System.out.println("Nhập trình độ của nhân viên: ");
-        String lever = scanner.nextLine();
-
-        System.out.println("Nhập vị trí của nhân viên: ");
-        String location = scanner.nextLine();
-
+        String location;
+        do {
+            System.out.println("Nhập vị trí của nhân viên ( le tan|phuc vu|chuyen vien|giam sat|quan ly|giam doc ): ");
+            location = scanner.nextLine();
+            if (!Regex.locationEmployee(location)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.locationEmployee(location));
+        double salary;
         System.out.println("Nhập lương của nhân viên: ");
-        double salary = Double.parseDouble(scanner.nextLine());
+        salary = Double.parseDouble(scanner.nextLine());
 
         Employee newEmployee = new Employee(id, name, dateOfBirth, gender, idCardNumber, phoneNumber, email, lever, location, salary);
         return newEmployee;
@@ -112,32 +123,83 @@ public class EmployeeView {
     }
 
     public Employee inputEditEmployee() {
-        System.out.println("Nhập mã nhân viên mới: ");
-        String id = scanner.nextLine();
+        String id;
+        do {
+            System.out.println("Nhập mã nhân viên mới ( NV-YYYY ): ");
+            id = scanner.nextLine();
+            if (!Regex.idEmployee(id)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
 
-        System.out.println("Nhập họ tên nhân viên mới:");
-        String name = scanner.nextLine();
+        } while (!Regex.idEmployee(id));
+
+        String name;
+        do {
+            System.out.println("Nhập họ tên nhân viên ( viết hoa các ký tự đầu mỗi từ ):");
+            name = scanner.nextLine();
+            if (!Regex.nameAll(name)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.nameAll(name));
+
 
         System.out.println("Nhập ngày tháng năm sinh nhân viên mới: ");
         String dateOfBirth = scanner.nextLine();
 
-        System.out.println("Nhập số chứng minh nhân dân của nhân viên mới: ");
-        String idCardNumber = scanner.nextLine();
+        String idCardNumber;
+        do {
+            System.out.println("Nhập số chứng minh nhân dân của nhân viên mới ( CMND phải đủ 9 hoặc 12 số ): ");
+            idCardNumber = scanner.nextLine();
+            if (!Regex.idCardAll(idCardNumber)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.idCardAll(idCardNumber));
 
-        System.out.println("Nhập giới tính của nhân viên mới: ");
-        String gender = scanner.nextLine();
+        String gender;
+        do {
+            System.out.println("Nhập giới tính của nhân viên mới ( male || female ): ");
+            gender = scanner.nextLine();
+            if (!Regex.genderAll(gender)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.genderAll(gender));
 
-        System.out.println("Nhập số điện thoại của nhân viên mới: ");
-        String phoneNumber = scanner.nextLine();
+        String phoneNumber;
+        do {
+            System.out.println("Nhập số điện thoại của nhân viên mới ( số điện thoại phải bắt đầu bằng 0 và dủ 10 số ): ");
+            phoneNumber = scanner.nextLine();
+            if (!Regex.phoneNumber(phoneNumber)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.phoneNumber(phoneNumber));
 
-        System.out.println("Nhập email của nhân viên mới: ");
-        String email = scanner.nextLine();
+        String email;
+        do {
+            System.out.println("Nhập email của nhân viên mới ( vd: abc123@gmail.com ): ");
+            email = scanner.nextLine();
+            if (!Regex.emailAll(email)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.emailAll(email));
 
-        System.out.println("Nhập trình độ của nhân viên mới: ");
-        String lever = scanner.nextLine();
+        String lever;
+        do {
+            System.out.println("Nhập trình độ của nhân viên mới (trung cap|cao dang|dai hoc|sau dai hoc): ");
+            lever = scanner.nextLine();
+            if (!Regex.leverEmployee(lever)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.leverEmployee(lever));
 
-        System.out.println("Nhập vị trí của nhân viên mới: ");
-        String location = scanner.nextLine();
+        String location;
+        do {
+            System.out.println("Nhập vị trí của nhân viên mới( le tan|phuc vu|chuyen vien|giam sat|quan ly|giam doc ): ");
+            location = scanner.nextLine();
+            if (!Regex.locationEmployee(location)) {
+                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+            }
+        } while (!Regex.locationEmployee(location));
+
 
         System.out.println("Nhập lương của nhân viên mới: ");
         double salary = Double.parseDouble(scanner.nextLine());

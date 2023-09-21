@@ -41,9 +41,9 @@ public class SpendingController {
                     break;
                 case 6:
                     String name = view.nameSearch();
-                    List<Spending> spending1 = spendingService.searchName(name);
-                    if (spending1.size() > 0) {
-                        System.out.println(spending1);
+                    List<Spending> spendingList = spendingService.searchName(name);
+                    if (spendingList.size() > 0) {
+                        System.out.println(spendingList);
                     } else {
                         System.out.println("Không tìm thấy");
                     }

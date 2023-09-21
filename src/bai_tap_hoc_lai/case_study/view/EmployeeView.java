@@ -107,9 +107,17 @@ public class EmployeeView {
                 System.out.println("Nhập sai định dạng, vui long nhập lại: ");
             }
         } while (!Regex.locationEmployee(location));
-        double salary;
-        System.out.println("Nhập lương của nhân viên: ");
-        salary = Double.parseDouble(scanner.nextLine());
+
+        double salary = 0;
+        do {
+            if (salary >= 0) {
+                System.out.println("Nhập lương của nhân viên: ");
+                salary = Double.parseDouble(scanner.nextLine());
+            } else {
+                System.out.println("Lương phải lớn hơn 0, vui lòng nhâpj lại: ");
+                break;
+            }
+        } while (salary <= 0);
 
         Employee newEmployee = new Employee(id, name, dateOfBirth, gender, idCardNumber, phoneNumber, email, lever, location, salary);
         return newEmployee;

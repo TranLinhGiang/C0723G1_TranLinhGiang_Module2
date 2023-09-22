@@ -82,6 +82,7 @@ public class PayRepositoryImpl implements IPayRepository {
                 return (o1.getName().compareTo(o2.getName()));
             }
         });
+        
         payList.sort(new Comparator<Pay>() {
             @Override
             public int compare(Pay o1, Pay o2) {

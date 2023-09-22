@@ -85,7 +85,7 @@ public class PayRepositoryImpl implements IPayRepository {
         payList.sort(new Comparator<Pay>() {
             @Override
             public int compare(Pay o1, Pay o2) {
-                return Double.compare(o1.getMoney(), o2.getMoney());
+                return Double.compare(o2.getMoney(), o1.getMoney());
             }
         });
         FileUtils.writeFile(PATH_FILE,convertToString(payList));

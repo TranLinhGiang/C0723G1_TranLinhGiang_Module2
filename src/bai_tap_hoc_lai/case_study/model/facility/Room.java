@@ -1,6 +1,6 @@
-package bai_tap_hoc_lai.case_study.model.furama;
+package bai_tap_hoc_lai.case_study.model.facility;
 
-public class Room extends Furama {
+public class Room extends Facility {
     private String free;   // dich vu mien phi
 
     public Room() {

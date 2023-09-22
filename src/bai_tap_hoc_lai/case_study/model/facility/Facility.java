@@ -1,38 +1,82 @@
 package bai_tap_hoc_lai.case_study.model.facility;
 
-public class Facility {
-    private String name;
-    private String address;
+public abstract class Facility {
+    private String serviceCode; // ma dich vu
+    private String srviceName;  // ten dich vu
+    private int usableArea;    // dien tich su dung
+    private int rentalCosts;   // chi phi thue
+    private int maxNumberPeople;     // so luong nguoi toi da
+    private String rentalType;     // kieu thue
 
     public Facility() {
     }
 
-    public Facility(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public Facility(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType) {
+        this.serviceCode = serviceCode;
+        this.srviceName = srviceName;
+        this.usableArea = usableArea;
+        this.rentalCosts = rentalCosts;
+        this.maxNumberPeople = maxNumberPeople;
+        this.rentalType = rentalType;
     }
 
-    public String getName() {
-        return name;
+    public String getServiceCode() {
+        return serviceCode;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
-    public String getAddress() {
-        return address;
+    public String getSrviceName() {
+        return srviceName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setSrviceName(String srviceName) {
+        this.srviceName = srviceName;
+    }
+
+    public int getUsableArea() {
+        return usableArea;
+    }
+
+    public void setUsableArea(int usableArea) {
+        this.usableArea = usableArea;
+    }
+
+    public int getRentalCosts() {
+        return rentalCosts;
+    }
+
+    public void setRentalCosts(int rentalCosts) {
+        this.rentalCosts = rentalCosts;
+    }
+
+    public int getMaxNumberPeople() {
+        return maxNumberPeople;
+    }
+
+    public void setMaxNumberPeople(int maxNumberPeople) {
+        this.maxNumberPeople = maxNumberPeople;
+    }
+
+    public String getRentalType() {
+        return rentalType;
+    }
+
+    public void setRentalType(String rentalType) {
+        this.rentalType = rentalType;
     }
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "Tên cơ sở='" + name + '\'' +
-                ", địa chỉ cơ sở='" + address + '\'' +
+        return "Furama{" +
+                "Mã dịch vụ='" + serviceCode + '\'' +
+                ", Tên dịch vụ='" + srviceName + '\'' +
+                ", Diện tích sử dụng=" + usableArea +
+                ", Chi phí thuê=" + rentalCosts +
+                ", Số lượng người tối đa=" + maxNumberPeople +
+                ", Kiểu thuê='" + rentalType + '\'' +
                 '}';
     }
 }

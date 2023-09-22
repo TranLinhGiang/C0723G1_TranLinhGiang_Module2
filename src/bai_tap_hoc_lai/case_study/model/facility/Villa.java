@@ -1,11 +1,11 @@
-package bai_tap_hoc_lai.case_study.model.furama;
+package bai_tap_hoc_lai.case_study.model.facility;
 
-public class Villa extends Furama {
+public class Villa extends Facility {
     private String roomStandard;  // tieu chuan phong
     private int poolArea;   // dien tich ho boi
     private int numberOfFloors;  // so tang
 
-    public Villa() {
+    public Villa(String svvl01, String jfgh, String fgh, int i, int i1, int i2, String hgf) {
     }
 
     public Villa(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String roomStandard, int poolArea, int numberOfFloors) {

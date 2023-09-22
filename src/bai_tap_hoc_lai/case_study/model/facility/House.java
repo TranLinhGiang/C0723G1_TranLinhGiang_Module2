@@ -1,6 +1,6 @@
-package bai_tap_hoc_lai.case_study.model.furama;
+package bai_tap_hoc_lai.case_study.model.facility;
 
-public class House extends Furama {
+public class House extends Facility {
     private String roomStandard;   // tieu chuan phong
     private int numberOfFloors;    // so tang
 

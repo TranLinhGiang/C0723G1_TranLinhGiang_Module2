@@ -65,7 +65,7 @@ public class EmployeeView {
 
         String gender;
         do {
-            System.out.println("Nhập giới tính của nhân viên ( male || female ): ");
+            System.out.println("Nhập giới tính của nhân viên ( male|female|lgpt ): ");
             gender = scanner.nextLine();
             if (!Regex.genderAll(gender)) {
                 System.out.println("Nhập sai định dạng, vui long nhập lại: ");
@@ -165,7 +165,7 @@ public class EmployeeView {
 
         String gender;
         do {
-            System.out.println("Nhập giới tính của nhân viên mới ( male || female ): ");
+            System.out.println("Nhập giới tính của nhân viên mới ( male|female|lgpt ): ");
             gender = scanner.nextLine();
             if (!Regex.genderAll(gender)) {
                 System.out.println("Nhập sai định dạng, vui long nhập lại: ");

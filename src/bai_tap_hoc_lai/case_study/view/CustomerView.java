@@ -56,7 +56,7 @@ public class CustomerView {
 
         String gender;
         do {
-            System.out.println("Nhập giới tính của khách hàng ( male|female ): ");
+            System.out.println("Nhập giới tính của khách hàng ( male|female|lgpt ): ");
             gender = scanner.nextLine();
             if (!Regex.genderAll(gender)) {
                 System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
@@ -139,7 +139,7 @@ public class CustomerView {
 
         String gender;
         do {
-            System.out.println("Nhập giới tính của khách hàng mới( male|female ): ");
+            System.out.println("Nhập giới tính của khách hàng mới( male|female|lgpt ): ");
             gender = scanner.nextLine();
             if (!Regex.genderAll(gender)) {
                 System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");

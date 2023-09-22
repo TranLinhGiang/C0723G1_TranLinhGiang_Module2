@@ -11,7 +11,7 @@ public class Regex {
     private static final String IDCUSTOMER_REGEX = "^KH-[0-9]{4}$";
     private static final String NAME_REGEX = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
     private static final String IDCARD_REGEX = "^(\\d{9}|[0-9]{12})$";
-    private static final String GENDER_REGEX = "^(male|female)$";
+    private static final String GENDER_REGEX = "^(male|female|lgpt)$";
     private static final String TYPECUSTOMER_REGEX = "^(diamond|platinum|gold|silver|)$";
     private static final String PHONENUMBER_REGEX = "^0[0-9]{9}$";
     private static final String EMAIL_REGEX = "^[a-z]+([0-9]*)([@]{1})(gmail{1})*([.]{1})([com]{1})*$";

@@ -38,5 +38,5 @@ public class PayServiceImpl implements IPayService {
     public List<Pay> getList() {
         return payRepository.getList();
     }
-    
+
 }

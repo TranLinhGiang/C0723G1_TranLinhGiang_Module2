@@ -7,4 +7,5 @@ public class Main {
         SpendingController spendingController = new SpendingController();
         spendingController.run();
     }
+    
 }

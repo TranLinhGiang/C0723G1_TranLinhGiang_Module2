@@ -53,6 +53,5 @@ public class SpendingController {
                     break;
             }
         } while (choice != 0);
-
     }
 }

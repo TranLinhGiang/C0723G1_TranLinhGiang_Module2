@@ -42,7 +42,7 @@ public class JobView {
             try {
 
                 System.out.println("Nhập mã chi tiêu: ");
-                id = Integer.parseInt(scanner.nextLine());
+               id = Integer.parseInt(scanner.nextLine());
                 if (jobRepository.checkId(id)) {
                     throw new Exception();
                 } else {
@@ -55,6 +55,7 @@ public class JobView {
                 System.out.println("id đã tồn tại !!!!!, vui lònd nhập lại: ");
                 isValid = false;
             }
+            break;
         } while (!isValid);
 
 
@@ -72,7 +73,7 @@ public class JobView {
             try {
                 if (money > 0) {
                     System.out.println("Nhập số tiền chi tiêu:");
-                    money = Double.parseDouble(scanner.nextLine());
+                 money = Double.parseDouble(scanner.nextLine());
                     isValid = true;
                 } else {
                     isValid = false;

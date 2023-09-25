@@ -1,5 +1,7 @@
 package bai_tap_hoc_lai.ss15_exception.view;
 
+import bai_tap_hoc_lai.ss15_exception.exception.IdNotFoundException;
+import bai_tap_hoc_lai.ss15_exception.exception.UniqueIdException;
 import bai_tap_hoc_lai.ss15_exception.model.Spend;
 import bai_tap_hoc_lai.ss15_exception.repository.impl.SpendRepositoryImpl;
 
@@ -45,15 +47,15 @@ public class SpendView {
                     System.out.println("Nhập mã chi tiêu: ");
                     id = Integer.parseInt(scanner.nextLine());
                     if (spendRepository.checkId(id)) {
-                        throw new Exception();
+                        throw new UniqueIdException("id đã tồn tại");
                     } else {
                         isValid = true;
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("id không được nhập chữ: ");
                     isValid = false;
-                } catch (Exception e) {
-                    System.out.println("id đã tồn tại, vui lòng nhập id khác trong danh sách: ");
+                } catch (UniqueIdException e) {
+                    System.out.println(e.getMessage());
                     isValid = false;
                 }
             } while (!isValid);
@@ -85,9 +87,18 @@ public class SpendView {
     }
 
     public int inputRemove() {
-        System.out.println("Nhập id bạn muốn xóa: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        return id;
+        try {
+            System.out.println("Nhập id bạn muốn xóa: ");
+            int id = Integer.parseInt(scanner.nextLine());
+            if (!spendRepository.checkId(id)) {
+                throw new UniqueIdException("id bạn nhập không tồn tại trong danh sách");
+            } else {
+                System.out.println("Bạn đã xóa thành công");
+            }
+        } catch (UniqueIdException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 
     public int inputEdit() {

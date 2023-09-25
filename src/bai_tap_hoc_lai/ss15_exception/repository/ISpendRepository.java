@@ -7,7 +7,7 @@ import java.util.List;
 public interface ISpendRepository extends IRepo<Spend> {
 
 
-    void removeSpend(int id);
+    Spend removeSpend(int id);
 
     void editSpend(int id, Spend spend);
 

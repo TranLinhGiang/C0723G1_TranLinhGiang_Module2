@@ -8,7 +8,7 @@ public interface ISpendService extends IService<Spend> {
 
 
 
-    void removeSpend(int id);
+    Spend removeSpend(int id);
 
     void editSpend(int id, Spend spend);
 

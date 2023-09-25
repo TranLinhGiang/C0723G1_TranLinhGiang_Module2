@@ -3,7 +3,6 @@ package bai_tap_hoc_lai.ss15_exception.repository.impl;
 import bai_tap_hoc_lai.ss15_exception.model.Spend;
 import bai_tap_hoc_lai.ss15_exception.repository.ISpendRepository;
 import bai_tap_hoc_lai.ss15_exception.utils.FileUtils;
-import sun.plugin2.ipc.windows.WindowsIPCFactory;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -43,7 +42,7 @@ public class SpendRepositoryImpl implements ISpendRepository {
     }
 
     @Override
-    public void removeSpend(int id) {
+    public Spend removeSpend(int id) {
         List<Spend> spendList = convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Spend valueRemove : spendList) {
@@ -54,6 +53,7 @@ public class SpendRepositoryImpl implements ISpendRepository {
             }
         }
         FileUtils.writeFile(PATH_FILE, convertToString(spendList));
+        return null;
     }
 
     @Override

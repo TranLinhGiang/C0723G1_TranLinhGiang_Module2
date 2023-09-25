@@ -20,8 +20,9 @@ public class SpendServiceImpl implements ISpendService {
     }
 
     @Override
-    public void removeSpend(int id) {
-        spendRepository.removeSpend(id);
+    public Spend removeSpend(int id) {
+
+        return spendRepository.removeSpend(id);
     }
 
     @Override

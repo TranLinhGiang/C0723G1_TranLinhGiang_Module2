@@ -1,5 +1,6 @@
 package bai_tap_hoc_lai.ss15_exception.controller;
 
+import bai_tap_hoc_lai.ss15_exception.exception.IdNotFoundException;
 import bai_tap_hoc_lai.ss15_exception.model.Spend;
 import bai_tap_hoc_lai.ss15_exception.service.impl.SpendServiceImpl;
 import bai_tap_hoc_lai.ss15_exception.view.SpendView;

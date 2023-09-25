@@ -42,7 +42,7 @@ public class SpendingView {
                 System.out.println("Nhập mã chi tiêu: ");
                 id = Integer.parseInt(scanner.nextLine());
                 if (spendingRepository.checkId(id)) {
-                   throw new Exception();
+                    throw new Exception();
                 } else {
                     isValid = true;
                 }
@@ -124,7 +124,11 @@ public class SpendingView {
     }
 
     public void displaySearch(Spending spending) {
-        String result = "Spend { ma chi tieu= " + spending.getId() + ", ten chi tieu= " + spending.getName() + ", ngay chi tieu= " + spending.getDate() + ", gia chi tieu= " + spending.getPrice() + ", mo ta chi tieu= " + spending.getDescribe();
+        String result = "Spend { ma chi tieu= " + spending.getId() +
+                ", ten chi tieu= " + spending.getName() +
+                ", ngay chi tieu= " + spending.getDate() +
+                ", gia chi tieu= " + spending.getPrice() +
+                ", mo ta chi tieu= " + spending.getDescribe();
         System.out.println("Danh sach: " + result);
     }
 

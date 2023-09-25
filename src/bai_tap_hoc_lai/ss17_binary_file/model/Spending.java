@@ -1,6 +1,8 @@
 package bai_tap_hoc_lai.ss17_binary_file.model;
 
-public class Spending {
+import java.io.Serializable;
+
+public class Spending implements Serializable {
     private int id;
     private String name;
     private int date;

@@ -17,7 +17,6 @@ public class Job {
         this.money = money;
         this.describe = describe;
     }
-
     public int getId() {
         return id;
     }

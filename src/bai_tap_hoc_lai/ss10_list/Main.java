@@ -7,4 +7,5 @@ public class Main {
         FruitController fruitController= new FruitController();
         fruitController.run();
     }
+    
 }

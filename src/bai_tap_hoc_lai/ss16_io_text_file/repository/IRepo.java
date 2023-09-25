@@ -6,4 +6,5 @@ public interface IRepo <E>{
     void add(E e);
 
     List<E> getList();
+    
 }

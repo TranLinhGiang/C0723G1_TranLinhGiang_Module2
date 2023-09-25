@@ -7,7 +7,6 @@ public abstract class Book {
 
     public Book() {
     }
-
     public Book(String nameBook, String publishingCompany, int publishingYear) {
         this.nameBook = nameBook;
         this.publishingCompany = publishingCompany;

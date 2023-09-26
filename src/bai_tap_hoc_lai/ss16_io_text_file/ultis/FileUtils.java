@@ -6,11 +6,11 @@ import java.util.List;
 
 public class FileUtils {
     // doc file
-    public static List<String> readFile(String path){
+    public static List<String> readFile(String path) {
         BufferedReader bufferedReader = null;
         List<String> strings = new ArrayList<>();
         try {
-            new BufferedReader(new FileReader(path));
+            bufferedReader = new BufferedReader(new FileReader(path));
             String str;
             while ((str = bufferedReader.readLine()) != null) {
                 strings.add(str);
@@ -30,10 +30,10 @@ public class FileUtils {
     }
 
     // ghi file
-    public static void writeFile(String path, List<String> strings){
+    public static void writeFile(String path, List<String> strings) {
         BufferedWriter bufferedWriter = null;
         try {
-            new BufferedWriter(new FileWriter(path));
+            bufferedWriter = new BufferedWriter(new FileWriter(path));
             for (String str : strings) {
                 bufferedWriter.write(str);
                 bufferedWriter.newLine();

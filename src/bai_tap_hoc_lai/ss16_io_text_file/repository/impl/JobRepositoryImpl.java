@@ -4,7 +4,7 @@ import bai_tap_hoc_lai.ss16_io_text_file.model.Job;
 import bai_tap_hoc_lai.ss16_io_text_file.repository.IJobRepository;
 import bai_tap_hoc_lai.ss16_io_text_file.ultis.FileUtils;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -13,7 +13,7 @@ public class JobRepositoryImpl implements IJobRepository {
     private final String PATH_FILE = "F:\\C0723G1_TranLinhGiang_Module2\\src\\bai_tap_hoc_lai\\ss16_io_text_file\\data\\job.csv";
     private final String COMMA = ",";
 
-    public boolean checkId(int id) {
+    public boolean checkId(int id) throws IOException {
         List<Job> jobList = this.getList();
         for (Job job : jobList) {
           if (job.getId()== id)
@@ -24,7 +24,7 @@ public class JobRepositoryImpl implements IJobRepository {
 
     @Override
 
-    public void removeJob(int id) {
+    public void removeJob(int id){
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Job valueRemove : jobList) {
@@ -38,7 +38,7 @@ public class JobRepositoryImpl implements IJobRepository {
     }
 
     @Override
-    public void editJob(int id, Job job) {
+    public void editJob(int id, Job job){
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Job valueEdit : jobList) {
@@ -52,7 +52,7 @@ public class JobRepositoryImpl implements IJobRepository {
 
 
     @Override
-    public Job searchId(int id) {
+    public Job searchId(int id){
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         for (Job valueSearchId : jobList) {
             if (valueSearchId.getId() == (id)) {
@@ -64,7 +64,7 @@ public class JobRepositoryImpl implements IJobRepository {
     }
 
     @Override
-    public List<Job> searchName(String name) {
+    public List<Job> searchName(String name){
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         List<Job> result = new ArrayList<>();
         for (Job valueSearchName : jobList) {
@@ -77,14 +77,14 @@ public class JobRepositoryImpl implements IJobRepository {
     }
 
     @Override
-    public void add(Job job) {
+    public void add(Job job){
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         jobList.add(job);
         FileUtils.writeFile(PATH_FILE, convertToString(jobList));
     }
 
     @Override
-    public List<Job> getList() {
+    public List<Job> getList()  {
         List<Job> jobList = convertToE(FileUtils.readFile(PATH_FILE));
         jobList.sort(new Comparator<Job>() {
             @Override
@@ -116,7 +116,6 @@ public class JobRepositoryImpl implements IJobRepository {
 
     public List<Job> convertToE(List<String> strings) {
         List<Job> jobs = new ArrayList<>();
-        String str;
         for (String string : strings) {
             String[] data = string.split(COMMA);
             jobs.add(new Job(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]), Double.parseDouble(data[3]), data[4]));

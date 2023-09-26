@@ -4,13 +4,14 @@ import bai_tap_hoc_lai.ss16_io_text_file.model.Job;
 import bai_tap_hoc_lai.ss16_io_text_file.repository.impl.JobRepositoryImpl;
 import bai_tap_hoc_lai.ss16_io_text_file.service.IJobService;
 
+import java.io.IOException;
 import java.util.List;
 
 public class JobServiceImpl implements IJobService {
     private final JobRepositoryImpl jobRepository = new JobRepositoryImpl();
 
     @Override
-    public void removeJob(int id) {
+    public void removeJob(int id){
         jobRepository.removeJob(id);
     }
 
@@ -26,12 +27,12 @@ public class JobServiceImpl implements IJobService {
     }
 
     @Override
-    public List<Job> searchName(String name) {
+    public List<Job> searchName(String name){
         return jobRepository.searchName(name);
     }
 
     @Override
-    public void add(Job job) {
+    public void add(Job job){
         jobRepository.add(job);
     }
 

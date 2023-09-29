@@ -16,28 +16,35 @@ public class FuramaController {
 
     public void run() {
         do {
-            furamaView.displayMainMenu();
-            choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1:
-                    employeeController.runEmployee();
-                    break;
-                case 2:
-                    customerController.runCustomer();
-                    break;
-                case 3:
-                    facilityController.runFacility();
-                    break;
-                case 4:
-                    bookingController.runBooking();
-                    break;
-                case 5:
-                    promotionController.runPromotion();
-                    break;
-                case 6:
-                    break;
+            try {
+                do {
+                    furamaView.displayMainMenu();
+                    choice = Integer.parseInt(scanner.nextLine());
+                    switch (choice) {
+                        case 1:
+                            employeeController.runEmployee();
+                            break;
+                        case 2:
+                            customerController.runCustomer();
+                            break;
+                        case 3:
+                            facilityController.runFacility();
+                            break;
+                        case 4:
+                            bookingController.runBooking();
+                            break;
+                        case 5:
+                            promotionController.runPromotion();
+                            break;
+                        case 6:
+                            break;
+                    }
+                } while (choice != 6);
+            } catch (Exception e) {
+                System.out.println("Vui lòng chọn đúng chức năng ở phần menu: ");
             }
         } while (choice != 6);
+
 
     }
 }

@@ -18,6 +18,83 @@ public class Regex {
     private static final String LEVER_REGEX = "^(trung cap|cao dang|dai hoc|sau dai hoc)$";
     private static final String LOCATION_REGEX = "^(le tan|phuc vu|chuyen vien|giam sat|quan ly|giam doc)$";
 
+    private static final String IDVILLA_REGEX = "^SVVL-[0-9]{4}$";
+    private static final String IDHOUSE_REGEX = "^SVHO-[0-9]{4}$";
+
+    private static final String NAME_VILLA = "^[A-Z][a-z]*(\\\\s[A-Z][a-z]*)*$";
+    private static final String TYLE_REGEX = "^(Year|Month|Day|Hourly)$";
+    private static final String TYPE_ROOMVILLA = "^(suite|deluxe)$";
+    private static final String IDROOM_REGEX = "^SVRO-[0-9]{4}$";
+    private static final String NAME_ROOM = "^[A-Z][a-z]*(\\\\s[A-Z][a-z]*)*$";
+    private static final String FREE_ROOM = "^(water|wifi)$";
+
+
+    public static boolean freeRoom(String freeRoom) {
+        pattern = Pattern.compile(FREE_ROOM);
+        matcher = pattern.matcher(freeRoom);
+        return matcher.matches();
+    }
+
+    public static boolean rentalTypeRoom(String rentalType) {
+        pattern = Pattern.compile(TYLE_REGEX);
+        matcher = pattern.matcher(rentalType);
+        return matcher.matches();
+    }
+
+    public static boolean nameRoom(String nameRoom) {
+        pattern = Pattern.compile(NAME_ROOM);
+        matcher = pattern.matcher(nameRoom);
+        return matcher.matches();
+    }
+
+    public static boolean serviceCode(String serviceCode) {
+        pattern = Pattern.compile(IDROOM_REGEX);
+        matcher = pattern.matcher(serviceCode);
+        return matcher.matches();
+    }
+
+    public static boolean rentalTypeHouse(String rentalTypeHouse) {
+        pattern = Pattern.compile(TYLE_REGEX);
+        matcher = pattern.matcher(rentalTypeHouse);
+        return matcher.matches();
+    }
+
+    public static boolean nameHouse(String nameHouse) {
+        pattern = Pattern.compile(NAME_VILLA);
+        matcher = pattern.matcher(nameHouse);
+        return matcher.matches();
+    }
+
+    public static boolean idHouse(String idHouse) {
+        pattern = Pattern.compile(IDHOUSE_REGEX);
+        matcher = pattern.matcher(idHouse);
+        return matcher.matches();
+    }
+
+    public static boolean typeRoomVilla(String typeRoomVilla) {
+        pattern = Pattern.compile(TYPE_ROOMVILLA);
+        matcher = pattern.matcher(typeRoomVilla);
+        return matcher.matches();
+    }
+
+    public static boolean rentalType(String rentalType) {
+        pattern = Pattern.compile(TYLE_REGEX);
+        matcher = pattern.matcher(rentalType);
+        return matcher.matches();
+    }
+
+    public static boolean nameVilla(String namVilla) {
+        pattern = Pattern.compile(NAME_VILLA);
+        matcher = pattern.matcher(namVilla);
+        return matcher.matches();
+    }
+
+    public static boolean idVilla(String idVilla) {
+        pattern = Pattern.compile(IDVILLA_REGEX);
+        matcher = pattern.matcher(idVilla);
+        return matcher.matches();
+    }
+
     public static boolean typeCustomer(String typeCustomer) {
         pattern = Pattern.compile(TYPECUSTOMER_REGEX);
         matcher = pattern.matcher(typeCustomer);

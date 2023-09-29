@@ -5,11 +5,11 @@ public class Villa extends Facility {
     private int poolArea;   // dien tich ho boi
     private int numberOfFloors;  // so tang
 
-    public Villa(String svvl01, String jfgh, String fgh, int i, int i1, int i2, String hgf) {
+    public Villa() {
     }
 
-    public Villa(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String roomStandard, int poolArea, int numberOfFloors) {
-        super(serviceCode, srviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
+    public Villa(String serviceCode, String serviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String roomStandard, int poolArea, int numberOfFloors) {
+        super(serviceCode, serviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.numberOfFloors = numberOfFloors;
@@ -43,7 +43,7 @@ public class Villa extends Facility {
     public String toString() {
         return "Villa{" +
                 "Mã dịch vụ='" + getServiceCode() + '\'' +
-                ", Tên dịch vụ='" + getSrviceName() + '\'' +
+                ", Tên dịch vụ='" + getServiceName() + '\'' +
                 ", Diện tích sử dụng=" + getUsableArea() +
                 ", Chi phí thuê=" + getRentalCosts() +
                 ", Số lượng người tối đa=" + getMaxNumberPeople() +

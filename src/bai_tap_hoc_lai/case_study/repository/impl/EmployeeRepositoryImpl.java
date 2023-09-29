@@ -22,12 +22,12 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
                 employees.set(index, employee);
             }
         }
-        FileUtils.writeFile(PATH_FILE,convertToString(employees));
+        FileUtils.writeFile(PATH_FILE, convertToString(employees));
     }
 
     @Override
     public void removeEmployee(String id) {
-        List<Employee> employees = convertToE(FileUtils.readFile(PATH_FILE));
+        List<Employee> employees =convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Employee valueRemove : employees) {
             if (valueRemove.getId().equals(id)) {
@@ -36,7 +36,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
                 break;
             }
         }
-        FileUtils.writeFile(PATH_FILE,convertToString(employees));
+        FileUtils.writeFile(PATH_FILE, convertToString(employees));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
                 return valueSearch;
             }
         }
-        FileUtils.writeFile(PATH_FILE,convertToString(employees));
+        FileUtils.writeFile(PATH_FILE, convertToString(employees));
         return null;
     }
 
@@ -55,7 +55,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public void add(Employee employee) {
         List<Employee> employees = convertToE(FileUtils.readFile(PATH_FILE));
         employees.add(employee);
-        FileUtils.writeFile(PATH_FILE,convertToString(employees));
+        FileUtils.writeFile(PATH_FILE, convertToString(employees));
     }
 
     @Override

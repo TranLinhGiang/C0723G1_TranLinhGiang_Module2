@@ -7,8 +7,8 @@ public class House extends Facility {
     public House() {
     }
 
-    public House(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String roomStandard, int numberOfFloors) {
-        super(serviceCode, srviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
+    public House(String serviceCode, String serviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String roomStandard, int numberOfFloors) {
+        super(serviceCode, serviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;
     }
@@ -33,7 +33,7 @@ public class House extends Facility {
     public String toString() {
         return "House{" +
                 "Mã dịch vụ='" + getServiceCode() + '\'' +
-                ", Tên dịch vụ='" + getSrviceName() + '\'' +
+                ", Tên dịch vụ='" + getServiceName() + '\'' +
                 ", Diện tích sử dụng=" + getUsableArea() +
                 ", Chi phí thuê=" + getRentalCosts() +
                 ", Số lượng người tối đa=" + getMaxNumberPeople() +

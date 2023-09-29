@@ -1,24 +1,30 @@
 package bai_tap_hoc_lai.case_study.utils;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtils {
     // doc file
     public static List<String> readFile(String path) {
+        BufferedReader bufferedReader = null;
         List<String> strings = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            bufferedReader = new BufferedReader(new FileReader(path));
             String str;
             while ((str = bufferedReader.readLine()) != null) {
                 strings.add(str);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+          try {
+              if (bufferedReader != null){
+                  bufferedReader.close();
+              }
+          } catch (IOException e) {
+              throw new RuntimeException(e);
+          }
         }
 
         return strings;
@@ -26,8 +32,9 @@ public class FileUtils {
 
     // ghi file
     public static void writeFile(String path, List<String> strings) {
+        BufferedWriter bufferedWriter = null;
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
+            bufferedWriter = new BufferedWriter(new FileWriter(path));
             for (String str : strings) {
                 bufferedWriter.write(str);
                 bufferedWriter.newLine();
@@ -35,6 +42,14 @@ public class FileUtils {
             bufferedWriter.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (bufferedWriter != null) {
+                    bufferedWriter.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

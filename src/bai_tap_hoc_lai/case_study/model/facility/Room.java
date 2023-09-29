@@ -6,8 +6,8 @@ public class Room extends Facility {
     public Room() {
     }
 
-    public Room(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String free) {
-        super(serviceCode, srviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
+    public Room(String serviceCode, String serviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType, String free) {
+        super(serviceCode, serviceName, usableArea, rentalCosts, maxNumberPeople, rentalType);
         this.free = free;
     }
 
@@ -23,7 +23,7 @@ public class Room extends Facility {
     public String toString() {
         return "Room{" +
                 "Mã dịch vụ='" + getServiceCode() + '\'' +
-                ", Tên dịch vụ='" + getSrviceName() + '\'' +
+                ", Tên dịch vụ='" + getServiceName() + '\'' +
                 ", Diện tích sử dụng=" + getUsableArea() +
                 ", Chi phí thuê=" + getRentalCosts() +
                 ", Số lượng người tối đa=" + getMaxNumberPeople() +

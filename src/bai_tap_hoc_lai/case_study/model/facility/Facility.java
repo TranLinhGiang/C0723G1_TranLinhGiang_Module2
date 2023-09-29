@@ -2,7 +2,7 @@ package bai_tap_hoc_lai.case_study.model.facility;
 
 public abstract class Facility {
     private String serviceCode; // ma dich vu
-    private String srviceName;  // ten dich vu
+    private String serviceName;  // ten dich vu
     private int usableArea;    // dien tich su dung
     private int rentalCosts;   // chi phi thue
     private int maxNumberPeople;     // so luong nguoi toi da
@@ -11,9 +11,9 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String serviceCode, String srviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType) {
+    public Facility(String serviceCode, String serviceName, int usableArea, int rentalCosts, int maxNumberPeople, String rentalType) {
         this.serviceCode = serviceCode;
-        this.srviceName = srviceName;
+        this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
         this.maxNumberPeople = maxNumberPeople;
@@ -28,12 +28,12 @@ public abstract class Facility {
         this.serviceCode = serviceCode;
     }
 
-    public String getSrviceName() {
-        return srviceName;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setSrviceName(String srviceName) {
-        this.srviceName = srviceName;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public int getUsableArea() {
@@ -72,7 +72,7 @@ public abstract class Facility {
     public String toString() {
         return "Furama{" +
                 "Mã dịch vụ='" + serviceCode + '\'' +
-                ", Tên dịch vụ='" + srviceName + '\'' +
+                ", Tên dịch vụ='" + serviceName + '\'' +
                 ", Diện tích sử dụng=" + usableArea +
                 ", Chi phí thuê=" + rentalCosts +
                 ", Số lượng người tối đa=" + maxNumberPeople +

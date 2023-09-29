@@ -23,28 +23,24 @@ public class FacilityController {
     public void runFacility() {
         do {
             try {
-                do {
-                    facilityView.menuFacility();
-                    choice = Integer.parseInt(scanner.nextLine());
-                    switch (choice) {
-                        case 1:
-                            villaService.addVilla(villaView.inputInfoAddVilla());
-                            break;
-                        case 2:
-                            houseService.addHouse(houseView.inputHouse());
-                            break;
-                        case 3:
-                            roomService.addRoom(roomView.inputAddRoom());
-                            break;
-                        case 4:
-                            furamaView.displayMainMenu();
-                            break;
-                    }
-                } while (choice != 6);
-
+                facilityView.menuFacility();
+                choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        villaService.addVilla(villaView.inputInfoAddVilla());
+                        break;
+                    case 2:
+                        houseService.addHouse(houseView.inputHouse());
+                        break;
+                    case 3:
+                        roomService.addRoom(roomView.inputAddRoom());
+                        break;
+                    case 4:
+                        break;
+                }
             } catch (Exception e) {
                 System.out.println("Vui lòng chọn đúng chức năng như ở menu: ");
             }
-        } while (choice != 6);
+        } while (choice != 4);
     }
 }

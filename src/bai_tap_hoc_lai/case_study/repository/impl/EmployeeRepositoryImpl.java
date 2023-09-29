@@ -11,9 +11,18 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     private final String PATH_FILE = "F:\\C0723G1_TranLinhGiang_Module2\\src\\bai_tap_hoc_lai\\case_study\\data\\employee.csv";
     private final String COMMA = ",";
 
+    public boolean checkId(String id) {
+        List<Employee> employeeList = this.getList();
+        for (Employee employee : employeeList) {
+            if (employee.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
-    public void editEmployee(String id, Employee employee) {
+    public Employee editEmployee(String id, Employee employee) {
         List<Employee> employees = convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Employee valueEdit : employees) {
@@ -23,20 +32,23 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
             }
         }
         FileUtils.writeFile(PATH_FILE, convertToString(employees));
+        return employee;
     }
 
     @Override
-    public void removeEmployee(String id) {
-        List<Employee> employees =convertToE(FileUtils.readFile(PATH_FILE));
+    public Employee removeEmployee(String id) {
+        List<Employee> employees = convertToE(FileUtils.readFile(PATH_FILE));
         int index;
         for (Employee valueRemove : employees) {
             if (valueRemove.getId().equals(id)) {
                 index = employees.indexOf(valueRemove);
+                Employee temp = valueRemove;
                 employees.remove(index);
-                break;
+                FileUtils.writeFile(PATH_FILE, convertToString(employees));
+                return temp;
             }
         }
-        FileUtils.writeFile(PATH_FILE, convertToString(employees));
+        return null;
     }
 
     @Override
@@ -83,9 +95,14 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public List<Employee> convertToE(List<String> strings) {
         List<Employee> employeeList = new ArrayList<>();
         for (String str : strings) {
+            if (str.isEmpty()) {
+                continue;
+            }
             String[] data = str.split(COMMA);
+            if (data.length < 10) {
+                continue;
+            }
             employeeList.add(new Employee(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], Double.parseDouble(data[9])));
-
         }
         return employeeList;
     }

@@ -16,39 +16,35 @@ public class CustomerController {
     public void runCustomer() {
         do {
             try {
-                do {
-                    customerView.menuCustomer();
-                    choice = Integer.parseInt(scanner.nextLine());
-                    switch (choice) {
-                        case 1:
-                            customerView.displayCustomer(customerService.getList());
-                            break;
-                        case 2:
-                            customerService.add(customerView.inputInfoCustomer());
-                            break;
-                        case 3:
-                            customerService.editCustomer(customerView.inputIdEdit(), customerView.inputEditCustomer());
-                            break;
-                        case 4:
-                            customerService.removeCustomer(customerView.inputIdRemove());
-                            break;
-                        case 5:
-                            Customer customer = customerService.searchCustomer(customerView.inputNameSearch());
-                            if (customer == null) {
-                                System.out.println("Không tìm thấy !!!!");
-                            } else {
-                                customerView.displaySearchCustomer(customer);
-                            }
-                            break;
-                        case 6:
-                            break;
-                    }
-                } while (choice != 6);
+                customerView.menuCustomer();
+                choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        customerView.displayCustomer(customerService.getList());
+                        break;
+                    case 2:
+                        customerService.add(customerView.inputInfoCustomer());
+                        break;
+                    case 3:
+                        customerService.editCustomer(customerView.inputIdEdit(), customerView.inputEditCustomer());
+                        break;
+                    case 4:
+                        customerService.removeCustomer(customerView.inputIdRemove());
+                        break;
+                    case 5:
+                        Customer customer = customerService.searchCustomer(customerView.inputNameSearch());
+                        if (customer == null) {
+                            System.out.println("Không tìm thấy !!!!");
+                        } else {
+                            customerView.displaySearchCustomer(customer);
+                        }
+                        break;
+                    case 6:
+                        break;
+                }
             } catch (Exception e) {
                 System.out.println("Vui lòng chọn đúng chức năng ở menu: ");
             }
         } while (choice != 6);
-
-
     }
 }

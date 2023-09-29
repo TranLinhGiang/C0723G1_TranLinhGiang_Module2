@@ -21,11 +21,11 @@ public class Regex {
     private static final String IDVILLA_REGEX = "^SVVL-[0-9]{4}$";
     private static final String IDHOUSE_REGEX = "^SVHO-[0-9]{4}$";
 
-    private static final String NAME_VILLA = "^[A-Z][a-z]*(\\\\s[A-Z][a-z]*)*$";
+    private static final String NAME_VILLA = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
     private static final String TYLE_REGEX = "^(Year|Month|Day|Hourly)$";
     private static final String TYPE_ROOMVILLA = "^(suite|deluxe)$";
     private static final String IDROOM_REGEX = "^SVRO-[0-9]{4}$";
-    private static final String NAME_ROOM = "^[A-Z][a-z]*(\\\\s[A-Z][a-z]*)*$";
+    private static final String NAME_ROOM = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
     private static final String FREE_ROOM = "^(water|wifi)$";
 
 

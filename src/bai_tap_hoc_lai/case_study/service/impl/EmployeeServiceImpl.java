@@ -11,13 +11,13 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 
     @Override
-    public void editEmployee(String id, Employee employee) {
-        employeeRepository.editEmployee(id,employee);
+    public Employee editEmployee(String id, Employee employee) {
+       return employeeRepository.editEmployee(id,employee);
     }
 
     @Override
-    public void removeEmployee(String id) {
-        employeeRepository.removeEmployee(id);
+    public Employee removeEmployee(String id) {
+       return employeeRepository.removeEmployee(id);
     }
 
     @Override

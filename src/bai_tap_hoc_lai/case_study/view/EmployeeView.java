@@ -1,6 +1,7 @@
 package bai_tap_hoc_lai.case_study.view;
 
 import bai_tap_hoc_lai.case_study.model.persion.Employee;
+import bai_tap_hoc_lai.case_study.repository.impl.EmployeeRepositoryImpl;
 import bai_tap_hoc_lai.case_study.utils.Regex;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 public class EmployeeView {
     private final Scanner scanner = new Scanner(System.in);
+    private final EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
 
     public void showMenuEmployee() {
         System.out.println("-- QUẢN LÝ NHÂN VIÊN --");
@@ -31,15 +33,32 @@ public class EmployeeView {
     }
 
     public Employee inputEmployee() {
-        String id;
+        String id = null;
+        boolean check = false;
         do {
-            System.out.println("Nhập mã nhân viên ( NV-YYYY ): ");
-            id = scanner.nextLine();
-            if (!Regex.idEmployee(id)) {
-                System.out.println("Nhập sai định dạng, vui long nhập lại: ");
-            }
+            do {
+                do {
+                    try {
+                        System.out.println("Nhập mã nhân viên ( NV-YYYY ): ");
+                        id = scanner.nextLine();
+                        if (employeeRepository.checkId(id)) {
+                            throw new Exception();
+                        } else {
+                            check = true;
+                        }
+                        if (!Regex.idEmployee(id)) {
+                            System.out.println("Nhập sai định dạng, vui long nhập lại: ");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("id đã tồn : ");
+                        check = false;
+                        break;
+                    }
+                } while (employeeRepository.checkId(id));
 
-        } while (!Regex.idEmployee(id));
+            } while (!Regex.idEmployee(id));
+        } while (!check);
+
 
         String name;
         do {
@@ -124,11 +143,6 @@ public class EmployeeView {
 
     }
 
-    public String idEditEmployee() {
-        System.out.println("Nhập id nhân viên bạn muốn chỉnh sửa: ");
-        String id = scanner.nextLine();
-        return id;
-    }
 
     public Employee inputEditEmployee() {
         String id;
@@ -216,19 +230,13 @@ public class EmployeeView {
         return newEmployee;
     }
 
-    public String idRemoveEmployee() {
-        System.out.println("Nhập id nhân viên bạn muốn chỉnh : ");
-        String id = scanner.nextLine();
-        return id;
-    }
-
     public void displaySearch(Employee employee) {
         String result = "Employee { Mã nhân viên = " + employee.getId() + ", Họ và tên = " + employee.getName() + ", Ngày tháng năm sinh = " + employee.getDateOfBirth() + ", Giới tính = " + employee.getGender() + ", Số chứng minnh nhân dân = " + employee.getIdCardNumber() + ", Số điện thoại = " + employee.getPhoneNumber() + ", email='" + employee.getEmail() + ", Trình độ = " + employee.getLever() + ", Vị trí = " + employee.getLocation() + ", Lương = " + employee.getSalary();
         System.out.println("Tìm thấy: " + result);
     }
 
-    public String idSearchEmployee() {
-        System.out.println("Nhập id nhân viên bạn muốn  : ");
+    public String inputId() {
+        System.out.println("Nhập id : ");
         String id = scanner.nextLine();
         return id;
     }

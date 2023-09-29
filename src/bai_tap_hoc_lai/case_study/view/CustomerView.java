@@ -2,6 +2,7 @@ package bai_tap_hoc_lai.case_study.view;
 
 import bai_tap_hoc_lai.case_study.controller.CustomerController;
 import bai_tap_hoc_lai.case_study.model.persion.Customer;
+import bai_tap_hoc_lai.case_study.repository.impl.CustomerRepositoryImpl;
 import bai_tap_hoc_lai.case_study.utils.Regex;
 
 import javax.security.sasl.SaslClient;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 public class CustomerView {
     Scanner scanner = new Scanner(System.in);
+    private final CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
 
     public void menuCustomer() {
         System.out.println("-- QUẢN LÝ KHÁCH HÀNG --");
@@ -31,15 +33,30 @@ public class CustomerView {
         }
     }
 
-    public Customer inputInfoCustomer() {
-        String id;
+    public Customer inputInfoCustomer() throws Exception {
+        String id = null;
+        boolean check = false;
         do {
-            System.out.println("Nhập mã khách hàng ( KH-YYYY ): ");
-            id = scanner.nextLine();
-            if (!Regex.idCustomer(id)) {
-                System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
-            }
-        } while (!Regex.idCustomer(id));
+            do {
+                try {
+                    System.out.println("Nhập mã khách hàng ( KH-YYYY ): ");
+                    id = scanner.nextLine();
+                    if (customerRepository.checkId(id)) {
+                        throw new Exception();
+                    } else {
+                        check = true;
+                    }
+                    if (!Regex.idCustomer(id)) {
+                        System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
+                    }
+                } catch (Exception e) {
+                    System.out.println("id da ton tai");
+                    check = false;
+                    break;
+                }
+            } while (!Regex.idCustomer(id));
+        } while (!check);
+
 
         String name;
         do {

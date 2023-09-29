@@ -11,8 +11,7 @@ public class FacilityView {
         System.out.println("1. Thêm mới Villa");
         System.out.println("2. Thêm mới House");
         System.out.println("3. Thêm mới Room");
-        System.out.println("4. Trở về menu");
-        System.out.println("5. Trở về menu chính");
+        System.out.println("4. Trở về menu chính");
         System.out.println("Nếu bạn muốn xem danh sách, vui lòng bạn" +
                 " vô file facility để xem giúp mình với ạ!!!!!!!! \n " +
                 "Vì đề bài chỉ yêu cầu thêm thôi nên mình không làm phần hiển thị hehe :)))");

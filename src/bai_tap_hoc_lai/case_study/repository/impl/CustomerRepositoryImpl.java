@@ -11,6 +11,15 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     private final String PATH_FILE = "F:\\C0723G1_TranLinhGiang_Module2\\src\\bai_tap_hoc_lai\\case_study\\data\\customer.csv";
     private final String COMMA = ",";
 
+    public boolean checkId(String id) {
+        List<Customer> customerList = this.getList();
+        for (Customer customer : customerList) {
+            if (customer.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void editCustomer(String id, Customer customer) {
@@ -22,7 +31,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 customers.set(index, customer);
             }
         }
-        FileUtils.writeFile(PATH_FILE,covertToString(customers));
+        FileUtils.writeFile(PATH_FILE, covertToString(customers));
     }
 
     @Override
@@ -37,7 +46,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 break;
             }
         }
-        FileUtils.writeFile(PATH_FILE,covertToString(customers));
+        FileUtils.writeFile(PATH_FILE, covertToString(customers));
     }
 
     @Override
@@ -49,7 +58,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 return valueSearch;
             }
         }
-        FileUtils.writeFile(PATH_FILE,covertToString(customers));
+        FileUtils.writeFile(PATH_FILE, covertToString(customers));
         return null;
     }
 
@@ -57,7 +66,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public void add(Customer customer) {
         List<Customer> customers = convertToE(FileUtils.readFile(PATH_FILE));
         customers.add(customer);
-        FileUtils.writeFile(PATH_FILE,covertToString(customers));
+        FileUtils.writeFile(PATH_FILE, covertToString(customers));
 
     }
 
@@ -86,8 +95,14 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public List<Customer> convertToE(List<String> strings) {
         List<Customer> customerList = new ArrayList<>();
         for (String str : strings) {
+            if (str.isEmpty()) {
+                continue;
+            }
             String[] data = str.split(COMMA);
-            customerList.add(new Customer(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]));
+            if (data.length < 9) {
+                continue;
+            }
+            customerList.add(new Customer(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
 
         }
         return customerList;

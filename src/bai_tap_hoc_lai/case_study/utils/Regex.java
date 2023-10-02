@@ -37,6 +37,7 @@ public class Regex {
         Period period = Period.between(birthDate, currentDate);
         return period.getYears() >= 18;
     }
+    
 
     public static boolean freeRoom(String freeRoom) {
         pattern = Pattern.compile(FREE_ROOM);

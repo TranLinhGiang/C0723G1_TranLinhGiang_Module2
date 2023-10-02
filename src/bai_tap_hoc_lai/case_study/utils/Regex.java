@@ -1,5 +1,8 @@
 package bai_tap_hoc_lai.case_study.utils;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,6 +31,12 @@ public class Regex {
     private static final String NAME_ROOM = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";
     private static final String FREE_ROOM = "^(water|wifi)$";
 
+    public static boolean is18YearOld(String birthday) {
+        LocalDate birthDate = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(birthDate, currentDate);
+        return period.getYears() >= 18;
+    }
 
     public static boolean freeRoom(String freeRoom) {
         pattern = Pattern.compile(FREE_ROOM);

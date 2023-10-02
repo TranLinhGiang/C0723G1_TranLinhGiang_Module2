@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IJobService extends IService<Job> {
-    // them, hien thi
-    void removeJob(int id) throws IOException;
+    void removeJob(int id) ;
 
-    void editJob(int id, Job job) throws IOException;
+    void editJob(int id, Job job) ;
 
 
-    Job searchId(int id) throws IOException;
+    Job searchId(int id);
 
-    List<Job> searchName(String name) throws IOException;
+    List<Job> searchName(String name);
 }

@@ -50,7 +50,7 @@ public class EmployeeView {
                             System.out.println("Nhập sai định dạng, vui long nhập lại: ");
                         }
                     } catch (Exception e) {
-                        System.out.println("id đã tồn : ");
+                        System.out.println("id đã tồn tại: ");
                         check = false;
                         break;
                     }
@@ -69,9 +69,27 @@ public class EmployeeView {
             }
         } while (!Regex.nameAll(name));
 
+        String dateOfBirth = null;
+        boolean checkDateOfBirth = false;
+        do {
+            do {
+                try {
+                    System.out.println("Nhập ngày tháng năm sinh nhân viên (dd/MM/yyyy): ");
+                    dateOfBirth = scanner.nextLine();
+                    checkDateOfBirth = true;
+                    if (!Regex.is18YearOld(dateOfBirth)) {
+                        System.out.println("chưa đủ 18 tuổi,vui lòng nhập lại: ");
+                    } else {
+                        checkDateOfBirth = true;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Nhập sai định dạng, vui lòng nhập lại");
+                    checkDateOfBirth = false;
+                }
+            } while (!Regex.is18YearOld(dateOfBirth));
 
-        System.out.println("Nhập ngày tháng năm sinh nhân viên: ");
-        String dateOfBirth = scanner.nextLine();
+        } while (!checkDateOfBirth);
+
 
         String idCardNumber;
         do {

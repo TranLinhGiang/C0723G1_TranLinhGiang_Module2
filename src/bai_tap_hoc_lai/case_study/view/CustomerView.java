@@ -67,9 +67,24 @@ public class CustomerView {
             }
         } while (!Regex.nameAll(name));
 
+        String dateOfBirth = null;
+        boolean checkDateOfBirthday = false;
+        do {
+            do {
+                try {
+                    System.out.println("Nhập ngày sinh của khách hàng (dd/MM/yyyy): ");
+                    dateOfBirth = scanner.nextLine();
+                    checkDateOfBirthday = true;
+                    if (!Regex.is18YearOld(dateOfBirth)) {
+                        System.out.println("chưa đủ 18 tuổi, vui lòng nhập lại: ");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Nhập sai định dạng, vui lòng nhập lại: ");
+                    checkDateOfBirthday = false;
+                }
+            } while (!Regex.is18YearOld(dateOfBirth));
+        } while (!checkDateOfBirthday);
 
-        System.out.println("Nhập ngày sinh của khách hàng: ");
-        String dateOfBirth = scanner.nextLine();
 
         String gender;
         do {
